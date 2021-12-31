@@ -1,5 +1,9 @@
 ﻿using DotNetSearch.Application.AutoMapper;
+using DotNetSearch.Application.Interfaces;
+using DotNetSearch.Application.Services;
+using DotNetSearch.Domain.Interfaces;
 using DotNetSearch.Infra.Data.Context;
+using DotNetSearch.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,11 +21,13 @@ namespace DotNetSearch.Infra.CrossCutting.IoC
             services.AddScoped<DotNetSearchDbContext>();
 
             // Infra Data - Repositories
+            services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
             // Application - AutoMapper
             services.AddAutoMapper(typeof(DotNetSearchMappingProfile));
 
             // Application - AppServices
+            services.AddScoped<ICategoriaAppService, CategoriaAppService>();
         }
     }
 }

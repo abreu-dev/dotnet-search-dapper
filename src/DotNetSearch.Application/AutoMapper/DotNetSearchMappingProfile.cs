@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using DotNetSearch.Application.Contratos;
+using DotNetSearch.Domain.Entities;
 
 namespace DotNetSearch.Application.AutoMapper
 {
@@ -6,7 +8,9 @@ namespace DotNetSearch.Application.AutoMapper
     {
         public DotNetSearchMappingProfile()
         {
-
+            CreateMap<Categoria, CategoriaContrato>()
+                .ReverseMap();
+            CreateMap<Categoria, Categoria>();
         }
     }
 }

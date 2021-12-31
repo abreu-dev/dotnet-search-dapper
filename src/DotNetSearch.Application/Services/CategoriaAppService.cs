@@ -1,0 +1,84 @@
+﻿using AutoMapper;
+using DotNetSearch.Application.Contratos;
+using DotNetSearch.Application.Interfaces;
+using DotNetSearch.Domain.Entities;
+using DotNetSearch.Domain.Interfaces;
+using DotNetSearch.Domain.Validators.CategoriaValidators;
+using FluentValidation.Results;
+using System;
+using System.Threading.Tasks;
+
+namespace DotNetSearch.Application.Services
+{
+    public class CategoriaAppService : AppService<CategoriaContrato, Categoria>,
+        ICategoriaAppService
+    {
+        private readonly IMapper _mapper;
+        private readonly ICategoriaRepository _categoriaRepository;
+
+        public CategoriaAppService(IMapper mapper,
+                                   ICategoriaRepository categoriaRepository)
+            : base(mapper, categoriaRepository) 
+        {
+            _mapper = mapper;
+            _categoriaRepository = categoriaRepository;
+        }
+
+        public async Task<ValidationResult> Add(CategoriaContrato categoriaContrato)
+        {
+            var categoria = _mapper.Map<Categoria>(categoriaContrato);
+
+            var validationResult = new AddCategoriaValidator().Validate(categoria);
+            if (validationResult.IsValid)
+            {
+                _categoriaRepository.Add(categoria);
+                await _categoriaRepository.UnitOfWork.Commit();
+            }
+
+            return validationResult;
+        }
+
+        public async Task<ValidationResult> Update(CategoriaContrato categoriaContrato)
+        {
+            var categoria = _mapper.Map<Categoria>(categoriaContrato);
+
+            var validationResult = new UpdateCategoriaValidator().Validate(categoria);
+            if (validationResult.IsValid)
+            {
+                var dbEntity = await _categoriaRepository.GetById(categoria.Id);
+                if (dbEntity == null)
+                {
+                    validationResult.Errors.Add(new ValidationFailure("", "Vish"));
+                }
+                else
+                {
+                    _mapper.Map(categoria, dbEntity);
+                    _categoriaRepository.Update(dbEntity);
+                    await _categoriaRepository.UnitOfWork.Commit();
+                }
+            }
+
+            return validationResult;
+        }
+
+        public async Task<ValidationResult> Remove(Guid id)
+        {
+            var validationResult = new RemoveCategoriaValidator().Validate(id);
+            if (validationResult.IsValid)
+            {
+                var dbEntity = await _categoriaRepository.GetById(id);
+                if (dbEntity == null)
+                {
+                    validationResult.Errors.Add(new ValidationFailure("", "Vish"));
+                }
+                else
+                {
+                    _categoriaRepository.Remove(dbEntity);
+                    await _categoriaRepository.UnitOfWork.Commit();
+                }
+            }
+
+            return validationResult;
+        }
+    }
+}
