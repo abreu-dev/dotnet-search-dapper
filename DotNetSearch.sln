@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0187FB59-4D5A-4D91-B45E-123AC708A4EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F7A652C-99D4-4035-8EC8-DD047312BA87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Application", "src\DotNetSearch.Application\DotNetSearch.Application.csproj", "{7B222CB9-3C63-41A5-BFDA-3C5CAC37B1A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Domain", "src\DotNetSearch.Domain\DotNetSearch.Domain.csproj", "{8BAEB20D-CE9E-4DA0-9392-A7A1AE6C5AD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Infra.Data", "src\DotNetSearch.Infra.Data\DotNetSearch.Infra.Data.csproj", "{350ED0CA-3AD0-48AE-9C60-E19090A1C14C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Infra.CrossCutting.IoC", "src\DotNetSearch.Infra.CrossCutting.IoC\DotNetSearch.Infra.CrossCutting.IoC.csproj", "{4FEB8535-A380-4071-99B7-C97A86D96A44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.API", "src\DotNetSearch.API\DotNetSearch.API.csproj", "{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B222CB9-3C63-41A5-BFDA-3C5CAC37B1A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B222CB9-3C63-41A5-BFDA-3C5CAC37B1A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B222CB9-3C63-41A5-BFDA-3C5CAC37B1A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B222CB9-3C63-41A5-BFDA-3C5CAC37B1A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BAEB20D-CE9E-4DA0-9392-A7A1AE6C5AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BAEB20D-CE9E-4DA0-9392-A7A1AE6C5AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BAEB20D-CE9E-4DA0-9392-A7A1AE6C5AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BAEB20D-CE9E-4DA0-9392-A7A1AE6C5AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{350ED0CA-3AD0-48AE-9C60-E19090A1C14C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{350ED0CA-3AD0-48AE-9C60-E19090A1C14C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{350ED0CA-3AD0-48AE-9C60-E19090A1C14C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{350ED0CA-3AD0-48AE-9C60-E19090A1C14C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FEB8535-A380-4071-99B7-C97A86D96A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FEB8535-A380-4071-99B7-C97A86D96A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FEB8535-A380-4071-99B7-C97A86D96A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FEB8535-A380-4071-99B7-C97A86D96A44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7B222CB9-3C63-41A5-BFDA-3C5CAC37B1A3} = {0187FB59-4D5A-4D91-B45E-123AC708A4EA}
+		{8BAEB20D-CE9E-4DA0-9392-A7A1AE6C5AD4} = {0187FB59-4D5A-4D91-B45E-123AC708A4EA}
+		{350ED0CA-3AD0-48AE-9C60-E19090A1C14C} = {0187FB59-4D5A-4D91-B45E-123AC708A4EA}
+		{4FEB8535-A380-4071-99B7-C97A86D96A44} = {0187FB59-4D5A-4D91-B45E-123AC708A4EA}
+		{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9} = {0187FB59-4D5A-4D91-B45E-123AC708A4EA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5FEA1044-3F60-4E6C-A6EA-9DC4004B7965}
+	EndGlobalSection
+EndGlobal
