@@ -1,0 +1,11 @@
+d
+[C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\BaseDbContext.csutf-8l
+cC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\DotNetSearchDbContext.csutf-8a
+XC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\IDbContext.csutf-8}
+tC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Migrations\20211231212404_AutorLivroECategoria.csutf-8ˆ
+}C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Migrations\20211231212404_AutorLivroECategoria.Designer.csutf-8~
+sC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Migrations\DotNetSearchDbContextModelSnapshot.csutf-8o
+fC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Repositories\CategoriaRepository.csutf-8f
+]C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Repositories\Repository.csutf-8Ž
+‚C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.csutf-8†
+{C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\obj\Debug\net5.0\DotNetSearch.Infra.Data.AssemblyInfo.csutf-8

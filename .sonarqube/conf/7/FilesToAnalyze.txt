@@ -1,0 +1,11 @@
+﻿C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Common\UnprocessableEntityResponse.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Controllers\BaseController.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Controllers\CategoriaController.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Program.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Startup.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\obj\Debug\net5.0\DotNetSearch.API.AssemblyInfo.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\obj\Debug\net5.0\DotNetSearch.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\appsettings.Development.json
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\appsettings.json
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Properties\launchSettings.json

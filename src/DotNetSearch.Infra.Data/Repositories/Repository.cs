@@ -12,10 +12,10 @@ namespace DotNetSearch.Infra.Data.Repositories
 {
     public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
-        private readonly DotNetSearchDbContext _dbContext;
+        private readonly BaseDbContext _dbContext;
         private readonly DbSet<TEntity> _dbSet;
 
-        protected Repository(DotNetSearchDbContext dbContext)
+        protected Repository(BaseDbContext dbContext)
         {
             _dbContext = dbContext;
             _dbSet = _dbContext.Set<TEntity>();
@@ -50,7 +50,8 @@ namespace DotNetSearch.Infra.Data.Repositories
 
         public virtual async Task<TEntity> GetById(Guid id)
         {
-            return await Query().FirstOrDefaultAsync(x => x.Id == id);
+            var teste = Query();
+            return await teste.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public virtual void Add(TEntity entity)

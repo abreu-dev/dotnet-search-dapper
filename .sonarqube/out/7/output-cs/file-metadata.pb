@@ -1,0 +1,9 @@
+j
+aC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Common\UnprocessableEntityResponse.csutf-8b
+YC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Controllers\BaseController.csutf-8g
+^C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Controllers\CategoriaController.csutf-8O
+FC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Program.csutf-8O
+FC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Startup.csutf-8†
+{C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.csutf-8x
+mC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\obj\Debug\net5.0\DotNetSearch.API.AssemblyInfo.csutf-8Œ
+€C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\obj\Debug\net5.0\DotNetSearch.API.MvcApplicationPartsAssemblyInfo.csutf-8

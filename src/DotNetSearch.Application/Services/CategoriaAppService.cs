@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
+using DotNetSearch.Domain.Common;
 using DotNetSearch.Domain.Entities;
 using DotNetSearch.Domain.Interfaces;
 using DotNetSearch.Domain.Validators.CategoriaValidators;
@@ -48,7 +49,8 @@ namespace DotNetSearch.Application.Services
                 var dbEntity = await _categoriaRepository.GetById(categoria.Id);
                 if (dbEntity == null)
                 {
-                    validationResult.Errors.Add(new ValidationFailure("", "Vish"));
+                    validationResult.Errors.Add(new ValidationFailure("", 
+                        DomainMessages.NotFound.Format("Categoria").Message));
                 }
                 else
                 {
@@ -69,7 +71,8 @@ namespace DotNetSearch.Application.Services
                 var dbEntity = await _categoriaRepository.GetById(id);
                 if (dbEntity == null)
                 {
-                    validationResult.Errors.Add(new ValidationFailure("", "Vish"));
+                    validationResult.Errors.Add(new ValidationFailure("", 
+                        DomainMessages.NotFound.Format("Categoria").Message));
                 }
                 else
                 {

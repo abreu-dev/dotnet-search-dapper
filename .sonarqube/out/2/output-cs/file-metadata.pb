@@ -1,0 +1,10 @@
+u
+lC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\AutoMapper\DotNetSearchMappingProfile.csutf-8k
+bC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Contratos\CategoriaContrato.csutf-8b
+YC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Contratos\Contrato.csutf-8f
+]C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Interfaces\IAppService.csutf-8o
+fC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Interfaces\ICategoriaAppService.csutf-8c
+ZC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Services\AppService.csutf-8l
+cC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Services\CategoriaAppService.csutf-8è
+ÉC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\obj\Debug\net5.0\.NETCoreApp,Version=v5.0.AssemblyAttributes.csutf-8à
+}C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\obj\Debug\net5.0\DotNetSearch.Application.AssemblyInfo.csutf-8

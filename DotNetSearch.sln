@@ -7,15 +7,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0187FB59-4D5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F7A652C-99D4-4035-8EC8-DD047312BA87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Application", "src\DotNetSearch.Application\DotNetSearch.Application.csproj", "{7B222CB9-3C63-41A5-BFDA-3C5CAC37B1A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Application", "src\DotNetSearch.Application\DotNetSearch.Application.csproj", "{7B222CB9-3C63-41A5-BFDA-3C5CAC37B1A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Domain", "src\DotNetSearch.Domain\DotNetSearch.Domain.csproj", "{8BAEB20D-CE9E-4DA0-9392-A7A1AE6C5AD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Domain", "src\DotNetSearch.Domain\DotNetSearch.Domain.csproj", "{8BAEB20D-CE9E-4DA0-9392-A7A1AE6C5AD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Infra.Data", "src\DotNetSearch.Infra.Data\DotNetSearch.Infra.Data.csproj", "{350ED0CA-3AD0-48AE-9C60-E19090A1C14C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Infra.Data", "src\DotNetSearch.Infra.Data\DotNetSearch.Infra.Data.csproj", "{350ED0CA-3AD0-48AE-9C60-E19090A1C14C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Infra.CrossCutting.IoC", "src\DotNetSearch.Infra.CrossCutting.IoC\DotNetSearch.Infra.CrossCutting.IoC.csproj", "{4FEB8535-A380-4071-99B7-C97A86D96A44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Infra.CrossCutting.IoC", "src\DotNetSearch.Infra.CrossCutting.IoC\DotNetSearch.Infra.CrossCutting.IoC.csproj", "{4FEB8535-A380-4071-99B7-C97A86D96A44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.API", "src\DotNetSearch.API\DotNetSearch.API.csproj", "{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.API", "src\DotNetSearch.API\DotNetSearch.API.csproj", "{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Application.Tests", "tests\DotNetSearch.Application.Tests\DotNetSearch.Application.Tests.csproj", "{EA4FAF2F-0F96-40CE-8F22-C04C0861DB94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Domain.Tests", "tests\DotNetSearch.Domain.Tests\DotNetSearch.Domain.Tests.csproj", "{3E904909-BC54-4634-86FB-BA331411083E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Infra.Data.Tests", "tests\DotNetSearch.Infra.Data.Tests\DotNetSearch.Infra.Data.Tests.csproj", "{D46D438F-7467-423A-BB53-1A0F812DB2A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +49,18 @@ Global
 		{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA4FAF2F-0F96-40CE-8F22-C04C0861DB94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA4FAF2F-0F96-40CE-8F22-C04C0861DB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA4FAF2F-0F96-40CE-8F22-C04C0861DB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA4FAF2F-0F96-40CE-8F22-C04C0861DB94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E904909-BC54-4634-86FB-BA331411083E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E904909-BC54-4634-86FB-BA331411083E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E904909-BC54-4634-86FB-BA331411083E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E904909-BC54-4634-86FB-BA331411083E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D46D438F-7467-423A-BB53-1A0F812DB2A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D46D438F-7467-423A-BB53-1A0F812DB2A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D46D438F-7467-423A-BB53-1A0F812DB2A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D46D438F-7467-423A-BB53-1A0F812DB2A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +71,9 @@ Global
 		{350ED0CA-3AD0-48AE-9C60-E19090A1C14C} = {0187FB59-4D5A-4D91-B45E-123AC708A4EA}
 		{4FEB8535-A380-4071-99B7-C97A86D96A44} = {0187FB59-4D5A-4D91-B45E-123AC708A4EA}
 		{770A9CCA-2416-4EA2-AC7A-B9B93F5D1DF9} = {0187FB59-4D5A-4D91-B45E-123AC708A4EA}
+		{EA4FAF2F-0F96-40CE-8F22-C04C0861DB94} = {0F7A652C-99D4-4035-8EC8-DD047312BA87}
+		{3E904909-BC54-4634-86FB-BA331411083E} = {0F7A652C-99D4-4035-8EC8-DD047312BA87}
+		{D46D438F-7467-423A-BB53-1A0F812DB2A1} = {0F7A652C-99D4-4035-8EC8-DD047312BA87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5FEA1044-3F60-4E6C-A6EA-9DC4004B7965}
