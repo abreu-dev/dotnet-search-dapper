@@ -119,7 +119,7 @@ YC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Controllers\BaseCon
 } 
 } 	
 } 
-} ™
+} œ
 ^C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Controllers\CategoriaController.cs
 	namespace 	
 DotNetSearch
@@ -174,10 +174,10 @@ YC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Controllers\BaseCon
 <% &
 CategoriaContrato& 7
 >7 8
->8 9
-Get: =
-(= >
-)> ?
+>8 9
+GetAll: @
+(@ A
+)A B
 { 	
 return 
 await  

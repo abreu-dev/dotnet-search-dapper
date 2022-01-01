@@ -1,7 +1,4 @@
-﻿C:\Desenvolvimento\Repos\dotnet-search\tests\DotNetSearch.Infra.Data.Tests\Context\BaseDbContextTests.cs
-C:\Desenvolvimento\Repos\dotnet-search\tests\DotNetSearch.Infra.Data.Tests\Context\DotNetSearchDbContextTests.cs
-C:\Desenvolvimento\Repos\dotnet-search\tests\DotNetSearch.Infra.Data.Tests\Repositories\CategoriaRepositoryTests.cs
-C:\Desenvolvimento\Repos\dotnet-search\tests\DotNetSearch.Infra.Data.Tests\Repositories\RepositoryTests.cs
+﻿C:\Desenvolvimento\Repos\dotnet-search\tests\DotNetSearch.API.Tests\Controllers\CategoriaControllerTests.cs
 C:\Users\gabri\.nuget\packages\microsoft.net.test.sdk\16.11.0\build\netcoreapp2.1\Microsoft.NET.Test.Sdk.Program.cs
 C:\Users\gabri\.nuget\packages\microsoft.testplatform.testhost\16.11.0\build\netcoreapp2.1\x64\testhost.exe
 C:\Users\gabri\.nuget\packages\microsoft.testplatform.testhost\16.11.0\build\netcoreapp2.1\x64\testhost.dll
@@ -9,4 +6,4 @@ C:\Users\gabri\.nuget\packages\microsoft.testplatform.testhost\16.11.0\build\net
 C:\Users\gabri\.nuget\packages\xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
 C:\Users\gabri\.nuget\packages\xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
 C:\Users\gabri\.nuget\packages\xunit.runner.visualstudio\2.4.3\build\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
-C:\Desenvolvimento\Repos\dotnet-search\tests\DotNetSearch.Infra.Data.Tests\coverage.opencover.xml
+C:\Desenvolvimento\Repos\dotnet-search\tests\DotNetSearch.API.Tests\coverage.opencover.xml

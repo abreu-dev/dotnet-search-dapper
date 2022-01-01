@@ -2,9 +2,9 @@
 <CoverageSession>
   <Summary numSequencePoints="430" visitedSequencePoints="36" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="8.37" branchCoverage="100" maxCyclomaticComplexity="27" minCyclomaticComplexity="22" visitedClasses="9" numClasses="23" visitedMethods="11" numMethods="49" />
   <Modules>
-    <Module hash="0E655D40-E71B-4276-A1A5-A2B6EFCD6CCD">
+    <Module hash="E206A0B4-0283-4288-847D-FBFF57730434">
       <ModulePath>DotNetSearch.Domain.dll</ModulePath>
-      <ModuleTime>2022-01-01T03:24:38</ModuleTime>
+      <ModuleTime>2022-01-01T04:10:52</ModuleTime>
       <ModuleName>DotNetSearch.Domain</ModuleName>
       <Files>
         <File uid="1" fullPath="C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Domain\Validators\Validator.cs" />
@@ -417,9 +417,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="C75E4123-C375-426A-B555-6F09D72BC99E">
+    <Module hash="5E4B00EF-5267-4F93-81BD-992E5D0A9A95">
       <ModulePath>DotNetSearch.Infra.Data.dll</ModulePath>
-      <ModuleTime>2022-01-01T03:24:38</ModuleTime>
+      <ModuleTime>2022-01-01T04:10:52</ModuleTime>
       <ModuleName>DotNetSearch.Infra.Data</ModuleName>
       <Files>
         <File uid="13" fullPath="C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Repositories\CategoriaRepository.cs" />

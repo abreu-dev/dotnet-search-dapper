@@ -2,5 +2,5 @@ projectKey=DOTNETSEARCH
 serverUrl=http://localhost:8082
 serverVersion=9.2.4.50792
 dashboardUrl=http://localhost:8082/dashboard?id=DOTNETSEARCH
-ceTaskId=AX4Tqxi-kHaHbU26xi4m
-ceTaskUrl=http://localhost:8082/api/ce/task?id=AX4Tqxi-kHaHbU26xi4m
+ceTaskId=AX4T1W6QkHaHbU26xi4q
+ceTaskUrl=http://localhost:8082/api/ce/task?id=AX4T1W6QkHaHbU26xi4q

@@ -17,7 +17,7 @@ namespace DotNetSearch.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<CategoriaContrato>> Get()
+        public async Task<IEnumerable<CategoriaContrato>> GetAll()
         {
             return await _categoriaAppService.GetAll();
         }

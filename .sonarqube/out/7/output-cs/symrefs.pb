@@ -23,7 +23,7 @@ YC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.API\Controllers\BaseCon
  "
 8 K# 6
 
-: =
+: @
 
 - 4
 : <6 8
