@@ -10,7 +10,6 @@ using DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
@@ -93,7 +92,8 @@ namespace DotNetSearch.Application.Services
         {
             Expression<Func<Categoria, bool>> predicate = LinqLambdaBuilder.BuildPredicate<Categoria>(searchContrato);
 
-            var searchResult = await _categoriaRepository.Search(predicate);
+            var searchResult = await _categoriaRepository.CustomSearch(searchContrato.Page,
+                searchContrato.PageSize, predicate);
 
             return _mapper.Map<IEnumerable<CategoriaContrato>>(searchResult);
         }
