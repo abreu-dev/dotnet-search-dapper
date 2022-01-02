@@ -351,3 +351,4 @@ MigrationBackup/
 
 # Sonarqube
 .sonarqube/
+tests/**/coverage.opencover.xml
