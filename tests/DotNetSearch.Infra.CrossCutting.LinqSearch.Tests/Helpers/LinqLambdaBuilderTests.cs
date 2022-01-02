@@ -33,24 +33,44 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
 
         #region Equal
         [Fact]
-        public void Equal_ShouldBuildExpressionEqual()
+        public void Equal_ShouldBuildExpressionEqualWithParentProperty()
         {
             var expected = "x => (x.Nome == \"Terror\")";
 
-            var actual = LinqLambdaBuilder.Equal<MyEntityConcreteClass>("Nome", "Terror");
+            var actual = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Nome", "Terror");
 
             Assert.NotNull(actual);
             Assert.Equal(expected, actual.ToString());
         }
         #endregion
+        [Fact]
+        public void Equal_ShouldBuildExpressionEqualWithChildProperty()
+        {
+            var expected = "x => (x.Child.Nome == \"Terror\")";
+
+            var actual = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Child.Nome", "Terror");
+
+            Assert.NotNull(actual);
+            Assert.Equal(expected, actual.ToString());
+        }
 
         #region Like
         [Fact]
-        public void Like_ShouldBuildExpressionLike()
+        public void Like_ShouldBuildExpressionLikeWithParentProperty()
         {
             var expected = "x => x.Nome.Contains(\"Terror\")";
 
-            var actual = LinqLambdaBuilder.Like<MyEntityConcreteClass>("Nome", "Terror");
+            var actual = LinqLambdaBuilder.Like<MyParentConcreteClass>("Nome", "Terror");
+
+            Assert.NotNull(actual);
+            Assert.Equal(expected, actual.ToString());
+        }
+        [Fact]
+        public void Like_ShouldBuildExpressionLikeWithChildProperty()
+        {
+            var expected = "x => x.Child.Nome.Contains(\"Terror\")";
+
+            var actual = LinqLambdaBuilder.Like<MyParentConcreteClass>("Child.Nome", "Terror");
 
             Assert.NotNull(actual);
             Assert.Equal(expected, actual.ToString());
@@ -59,11 +79,11 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
 
         #region And
         [Fact]
-        public void And()
+        public void And_ShouldBuildTwoExpressionTogetherWithAnd()
         {
             var expected = "x => ((x.Nome == \"Terror\") AndAlso (x.Nome == \"Comédia\"))";
-            var firstExpression = LinqLambdaBuilder.Equal<MyEntityConcreteClass>("Nome", "Terror");
-            var secondExpression = LinqLambdaBuilder.Equal<MyEntityConcreteClass>("Nome", "Comédia");
+            var firstExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Nome", "Terror");
+            var secondExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Nome", "Comédia");
 
             var actual = firstExpression.And(secondExpression);
 
@@ -74,11 +94,11 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
 
         #region Or
         [Fact]
-        public void Or()
+        public void Or_ShouldBuildTwoExpressionTogetherWithOr()
         {
             var expected = "x => ((x.Nome == \"Terror\") OrElse (x.Nome == \"Comédia\"))";
-            var firstExpression = LinqLambdaBuilder.Equal<MyEntityConcreteClass>("Nome", "Terror");
-            var secondExpression = LinqLambdaBuilder.Equal<MyEntityConcreteClass>("Nome", "Comédia");
+            var firstExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Nome", "Terror");
+            var secondExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Nome", "Comédia");
 
             var actual = firstExpression.Or(secondExpression);
 
@@ -88,7 +108,13 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
         #endregion
     }
 
-    public class MyEntityConcreteClass 
+    public class MyParentConcreteClass 
+    {
+        public string Nome { get; set; }
+        public MyChildConcreteClass Child { get; set; }
+    }
+
+    public class MyChildConcreteClass
     {
         public string Nome { get; set; }
     }
