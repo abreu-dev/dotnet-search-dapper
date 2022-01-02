@@ -1,1 +1,0 @@
-C:\Desenvolvimento\Repos\dotnet-search\.sonarqube\out\8

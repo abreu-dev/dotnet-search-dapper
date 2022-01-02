@@ -1,7 +1,0 @@
-﻿C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\AutoMapper\DotNetSearchMappingProfile.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Contratos\CategoriaContrato.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Contratos\Contrato.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Interfaces\IAppService.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Interfaces\ICategoriaAppService.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Services\AppService.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Services\CategoriaAppService.cs
