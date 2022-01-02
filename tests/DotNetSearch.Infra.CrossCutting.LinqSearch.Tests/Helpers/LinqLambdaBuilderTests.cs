@@ -1,43 +1,74 @@
-﻿using DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers;
+﻿using DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos;
+using DotNetSearch.Infra.CrossCutting.LinqSearch.Enums;
+using DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using Xunit;
 
 namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
 {
     public class LinqLambdaBuilderTests
     {
-        //#region BuildPredicate
-        //[Fact]
-        //public void BuildPredicate()
-        //{
-        //    Expression<Func<MyEntityConcreteClass, bool>> expected = x => x.Nome == "Terror";
-        //    var searchContrato = new SearchContrato()
-        //    {
-        //        Page = 1,
-        //        PageSize = 10,
-        //        Filters = new List<SearchFilterContrato>()
-        //        {
-        //            new SearchFilterContrato()
-        //            {
-        //                PropertyName = "Nome",
-        //                PropertyValue = "Terror",
-        //                Operation = SearchFilterOperation.Equals
-        //            }
-        //        }
-        //    };
+        #region BuildPredicate
+        [Fact]
+        public void BuildPredicate_ShouldBuildExpressionWithOneFilter()
+        {
+            var expected = "x => (x.Nome == \"Terror\")";
+            var searchContrato = new SearchContrato()
+            {
+                Filters = new List<SearchFilterContrato>()
+                {
+                    new SearchFilterContrato()
+                    {
+                        PropertyName = "Nome",
+                        PropertyValue = "Terror",
+                        Operation = SearchFilterOperation.Equals
+                    }
+                }
+            };
 
-        //    var actual = LinqLambdaBuilder.BuildPredicate<MyEntityConcreteClass>(searchContrato);
+            var actual = LinqLambdaBuilder.BuildPredicate<MyParentConcreteClass>(searchContrato);
 
-        //    Assert.Equal(actual.ToString(), expected.ToString());
-        //}
-        //#endregion
+            Assert.Equal(expected, actual.ToString());
+        }
+
+        [Fact]
+        public void BuildPredicate_ShouldBuildExpressionWithTwoFilters()
+        {
+            var expected = "x => ((x.Nome == \"Terror\") OrElse (x.Nome == \"Comédia\"))";
+            var searchContrato = new SearchContrato()
+            {
+                Filters = new List<SearchFilterContrato>()
+                {
+                    new SearchFilterContrato()
+                    {
+                        PropertyName = "Nome",
+                        PropertyValue = "Terror",
+                        Operation = SearchFilterOperation.Equals
+                    },
+                    new SearchFilterContrato()
+                    {
+                        PropertyName = "Nome",
+                        PropertyValue = "Comédia",
+                        Operation = SearchFilterOperation.Equals
+                    }
+                }
+            };
+
+            var actual = LinqLambdaBuilder.BuildPredicate<MyParentConcreteClass>(searchContrato);
+
+            Assert.Equal(expected, actual.ToString());
+        }
+        #endregion
 
         #region Equal
         [Fact]
         public void Equal_ShouldBuildExpressionEqualWithParentProperty()
         {
             var expected = "x => (x.Nome == \"Terror\")";
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(MyParentConcreteClass), "x");
 
-            var actual = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Nome", "Terror");
+            var actual = LinqLambdaBuilder.Equal<MyParentConcreteClass>(parameterExpression, "Nome", "Terror");
 
             Assert.NotNull(actual);
             Assert.Equal(expected, actual.ToString());
@@ -47,8 +78,9 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
         public void Equal_ShouldBuildExpressionEqualWithChildProperty()
         {
             var expected = "x => (x.Child.Nome == \"Terror\")";
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(MyParentConcreteClass), "x");
 
-            var actual = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Child.Nome", "Terror");
+            var actual = LinqLambdaBuilder.Equal<MyParentConcreteClass>(parameterExpression, "Child.Nome", "Terror");
 
             Assert.NotNull(actual);
             Assert.Equal(expected, actual.ToString());
@@ -59,8 +91,9 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
         public void Like_ShouldBuildExpressionLikeWithParentProperty()
         {
             var expected = "x => x.Nome.Contains(\"Terror\")";
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(MyParentConcreteClass), "x");
 
-            var actual = LinqLambdaBuilder.Like<MyParentConcreteClass>("Nome", "Terror");
+            var actual = LinqLambdaBuilder.Like<MyParentConcreteClass>(parameterExpression, "Nome", "Terror");
 
             Assert.NotNull(actual);
             Assert.Equal(expected, actual.ToString());
@@ -69,8 +102,9 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
         public void Like_ShouldBuildExpressionLikeWithChildProperty()
         {
             var expected = "x => x.Child.Nome.Contains(\"Terror\")";
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(MyParentConcreteClass), "x");
 
-            var actual = LinqLambdaBuilder.Like<MyParentConcreteClass>("Child.Nome", "Terror");
+            var actual = LinqLambdaBuilder.Like<MyParentConcreteClass>(parameterExpression, "Child.Nome", "Terror");
 
             Assert.NotNull(actual);
             Assert.Equal(expected, actual.ToString());
@@ -82,8 +116,9 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
         public void And_ShouldBuildTwoExpressionTogetherWithAnd()
         {
             var expected = "x => ((x.Nome == \"Terror\") AndAlso (x.Nome == \"Comédia\"))";
-            var firstExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Nome", "Terror");
-            var secondExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Nome", "Comédia");
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(MyParentConcreteClass), "x");
+            var firstExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>(parameterExpression, "Nome", "Terror");
+            var secondExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>(parameterExpression, "Nome", "Comédia");
 
             var actual = firstExpression.And(secondExpression);
 
@@ -97,8 +132,9 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
         public void Or_ShouldBuildTwoExpressionTogetherWithOr()
         {
             var expected = "x => ((x.Nome == \"Terror\") OrElse (x.Nome == \"Comédia\"))";
-            var firstExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Nome", "Terror");
-            var secondExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>("Nome", "Comédia");
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(MyParentConcreteClass), "x");
+            var firstExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>(parameterExpression, "Nome", "Terror");
+            var secondExpression = LinqLambdaBuilder.Equal<MyParentConcreteClass>(parameterExpression, "Nome", "Comédia");
 
             var actual = firstExpression.Or(secondExpression);
 

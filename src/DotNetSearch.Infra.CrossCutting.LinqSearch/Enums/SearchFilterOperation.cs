@@ -3,6 +3,6 @@
     public enum SearchFilterOperation
     {
         Equals = 0,
-        Contains = 1
+        Like = 1
     }
 }

@@ -20,8 +20,6 @@ namespace DotNetSearch.Infra.Data.Repositories
         {
             return await Query()
                 .Where(predicate)
-                .Skip(page * pageSize)
-                .Take(pageSize)
                 .ToListAsync();
         }
     }

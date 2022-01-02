@@ -1,7 +1,7 @@
 ﻿using DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos;
+using DotNetSearch.Infra.CrossCutting.LinqSearch.Enums;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
@@ -11,26 +11,49 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers
     {
         public static Expression<Func<T, bool>> BuildPredicate<T>(SearchContrato searchContrato)
         {
-            var firstExpression = Equal<T>("Nome", searchContrato.Filters.First().PropertyValue);
-            var secondExpression = Equal<T>("Nome", "Comédia");
+            Expression<Func<T, bool>> predicate = null;
+            ParameterExpression parameterExpression = Expression.Parameter(typeof(T), "x");
 
-            return firstExpression.Or(secondExpression);
+            foreach (var filter in searchContrato.Filters)
+            {
+                Expression<Func<T, bool>> filterExpression = null;
+
+                if (filter.Operation == SearchFilterOperation.Like)
+                {
+                    filterExpression = Like<T>(parameterExpression, filter.PropertyName, filter.PropertyValue);
+                }
+                else
+                {
+                    filterExpression = Equal<T>(parameterExpression, filter.PropertyName, filter.PropertyValue);
+                }
+
+                if (predicate == null)
+                {
+                    predicate = filterExpression;
+                } 
+                else
+                {
+                    predicate = predicate.Or(filterExpression);
+                }
+            }
+
+            return predicate;
         }
 
-        public static Expression<Func<T, bool>> Equal<T>(string propertyName, string propertyValue)
+        public static Expression<Func<T, bool>> Equal<T>(ParameterExpression parameterExpression, 
+            string propertyName, string propertyValue)
         {
-            ParameterExpression parameterExpression = Expression.Parameter(typeof(T), "x");
-            Expression propertyExpression = BuildExpressionProperty<T>(propertyName);
+            Expression propertyExpression = BuildExpressionProperty<T>(propertyName, parameterExpression);
             ConstantExpression constantExpression = Expression.Constant(propertyValue, typeof(string));
             BinaryExpression equalExpression = Expression.Equal(propertyExpression, constantExpression);
 
             return Expression.Lambda<Func<T, bool>>(equalExpression, parameterExpression);
         }
 
-        public static Expression<Func<T, bool>> Like<T>(string propertyName, string propertyValue)
+        public static Expression<Func<T, bool>> Like<T>(ParameterExpression parameterExpression, 
+            string propertyName, string propertyValue)
         {
-            ParameterExpression parameterExpression = Expression.Parameter(typeof(T), "x");
-            Expression propertyExpression = BuildExpressionProperty<T>(propertyName);
+            Expression propertyExpression = BuildExpressionProperty<T>(propertyName, parameterExpression);
             MethodInfo methodInfo = typeof(string).GetMethod("Contains", new[] { typeof(string) });
             ConstantExpression constantExpression = Expression.Constant(propertyValue, typeof(string));
             MethodCallExpression containsExpression = Expression.Call(propertyExpression, methodInfo, constantExpression);
@@ -60,9 +83,8 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers
             return Expression.Lambda<Func<T, bool>>(body, p);
         }
         
-        private static Expression BuildExpressionProperty<T>(this string propertyName)
+        private static Expression BuildExpressionProperty<T>(this string propertyName, ParameterExpression parameterExpression)
         {
-            ParameterExpression parameterExpression = Expression.Parameter(typeof(T), "x");
             Expression propertyExpression = parameterExpression;
 
             foreach (var property in propertyName.Split('.'))
