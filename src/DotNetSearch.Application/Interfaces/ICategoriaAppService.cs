@@ -1,6 +1,8 @@
 ﻿using DotNetSearch.Application.Contratos;
+using DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos;
 using FluentValidation.Results;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DotNetSearch.Application.Interfaces
@@ -10,5 +12,7 @@ namespace DotNetSearch.Application.Interfaces
         Task<ValidationResult> Add(CategoriaContrato categoriaContrato);
         Task<ValidationResult> Update(CategoriaContrato categoriaContrato);
         Task<ValidationResult> Remove(Guid id);
+
+        Task<IEnumerable<CategoriaContrato>> Search(SearchContrato searchContrato);
     }
 }

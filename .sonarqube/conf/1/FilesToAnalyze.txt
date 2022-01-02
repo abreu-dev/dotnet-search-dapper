@@ -1,8 +1,7 @@
-﻿C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\BaseDbContext.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\DotNetSearchDbContext.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\IDbContext.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Migrations\20211231212404_AutorLivroECategoria.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Migrations\20211231212404_AutorLivroECategoria.Designer.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Migrations\DotNetSearchDbContextModelSnapshot.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Repositories\CategoriaRepository.cs
-C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Repositories\Repository.cs
+﻿C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\AutoMapper\DotNetSearchMappingProfile.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Contratos\CategoriaContrato.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Contratos\Contrato.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Interfaces\IAppService.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Interfaces\ICategoriaAppService.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Services\AppService.cs
+C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Services\CategoriaAppService.cs

@@ -1,5 +1,6 @@
 ﻿using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
+using DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,12 @@ namespace DotNetSearch.API.Controllers
         public async Task<IActionResult> Remove(Guid id)
         {
             return Response(await _categoriaAppService.Remove(id));
+        }
+
+        [HttpGet("search")]
+        public async Task<IEnumerable<CategoriaContrato>> Search([FromBody] SearchContrato searchContrato)
+        {
+            return await _categoriaAppService.Search(searchContrato);
         }
     }
 }

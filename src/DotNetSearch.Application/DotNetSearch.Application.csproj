@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotNetSearch.Domain\DotNetSearch.Domain.csproj" />
+    <ProjectReference Include="..\DotNetSearch.Infra.CrossCutting.LinqSearch\DotNetSearch.Infra.CrossCutting.LinqSearch.csproj" />
   </ItemGroup>
 
 </Project>

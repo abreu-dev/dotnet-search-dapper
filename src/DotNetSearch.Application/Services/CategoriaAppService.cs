@@ -5,8 +5,11 @@ using DotNetSearch.Domain.Common;
 using DotNetSearch.Domain.Entities;
 using DotNetSearch.Domain.Interfaces;
 using DotNetSearch.Domain.Validators.CategoriaValidators;
+using DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos;
+using DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers;
 using FluentValidation.Results;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DotNetSearch.Application.Services
@@ -82,6 +85,16 @@ namespace DotNetSearch.Application.Services
             }
 
             return validationResult;
+        }
+
+        public async Task<IEnumerable<CategoriaContrato>> Search(SearchContrato searchContrato)
+        {
+            var predicate = LinqLambdaBuilder.BuildPredicate<Categoria>(searchContrato);
+
+            var searchResult = await _categoriaRepository.CustomSearch(searchContrato.Page,
+                searchContrato.PageSize, predicate);
+
+            return _mapper.Map<IEnumerable<CategoriaContrato>>(searchResult);
         }
     }
 }

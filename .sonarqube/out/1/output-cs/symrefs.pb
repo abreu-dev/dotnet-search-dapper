@@ -1,97 +1,86 @@
-—
-[C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\BaseDbContext.cs
+†
+lC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\AutoMapper\DotNetSearchMappingProfile.cs
 
- '
+ +
 
- 
-1 8A H
+		 )ˆ
+bC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Contratos\CategoriaContrato.cs
+
+ "
+
+ 
+
+ g
+YC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Contratos\Contrato.cs
+
+ "¹
+]C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Interfaces\IAppService.cs
+
+  (
+! *		  " 
+
+% +
+
+ 
+
+% '¼
+fC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Interfaces\ICategoriaAppService.cs
+
+ )
 
 
 
-  &·
-cC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\DotNetSearchDbContext.cs
-
- &
-
- $
-6 =F M
+ "
 
 
 
- !
+5 F
 
- !
+ %
 
-  )’
-XC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\IDbContext.cs
+8 I
 
- 
-		 		 		  !
+ %
 
-		 ö
-tC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Migrations\20211231212404_AutorLivroECategoria.cs
++ -”
+ZC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Services\AppService.cs
 
- -
+ $F
+% .G P & /+ 4 #!! ((
+0 7 % ,) 0(
+! (  !! (
+. 9 = H!!0 ;
 
-  "P
-4 D
-
-  ## :: SS XX ]] (
-    % *
- " 
-1 26 7
-    
- "   
-  5 6  : ;P
-%% '' (( ")) #**  ++$ ),,% *-- #
-// "11 22 
-111 2116 7
-44  !44% &(
-<< >> ?? #@@" '(
-BB "DD EE KK 
-DD; <DD@ A
-GG  !GG% &
-MM  !MM% &
+ 
+% + 
+2 < $
 
-cc  $2
-cc6 Fee hh kk nn –
-fC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Repositories\CategoriaRepository.cs
+2 8
 
- $
+% ,
+2 4!!D FÏ
+cC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Services\CategoriaAppService.cs
 
-		 "
-		9 B		K Tò
-]C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Repositories\Repository.cs
+ $2
+! (  #,, #99 d
+. B  ## $$$ *11% 9:: (;; .GG% 9OO (PP .
 
- $ 
-% ,< CK R &$ + "% ,F M$$" ))). 5))O V... 533" )99  '>># *CC# *(
-' 1  ) 3<
-( .  ;; @@ EE 
+ "
++ 1  
+8 K .# 6
 
- 
-+ 4 "
+, /
+B S3 D
+   H Q##) 2
+    !!  '' #
 
- %
-$ -&&  )
-. :&& 
-O T!! (
-$$+ 0++ 00 55 
+**, 2
+**E V,,3 D(
+,, ..K T11B K99  )(
+..  //  44 $?? #(
+11 22 99+ 3::0 8
 
-))8 >
-))_ h++' 0
-
-..8 >
-
-33+ 2
-338 :66@ B
-55 66 
-663 4668 9
-
-99 
-99( .;; 
-
->> "
->>+ 1@@  
-
-CC "
-CC+ 1EE  
+BB, 2
+BB8 :DDK MGGB D(
+DD  EE  JJ $TT #
+GG HH OO0 8

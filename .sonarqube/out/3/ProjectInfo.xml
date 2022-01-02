@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ProjectInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonarsource.com/msbuild/integration/2015/1">
-  <ProjectName>DotNetSearch.Domain.Tests</ProjectName>
+  <ProjectName>DotNetSearch.Application.Tests</ProjectName>
   <ProjectLanguage>C#</ProjectLanguage>
   <ProjectType>Test</ProjectType>
-  <ProjectGuid>3e904909-bc54-4634-86fb-ba331411083e</ProjectGuid>
-  <FullPath>C:\Desenvolvimento\Repos\dotnet-search\tests\DotNetSearch.Domain.Tests\DotNetSearch.Domain.Tests.csproj</FullPath>
+  <ProjectGuid>ea4faf2f-0f96-40ce-8f22-c04c0861db94</ProjectGuid>
+  <FullPath>C:\Desenvolvimento\Repos\dotnet-search\tests\DotNetSearch.Application.Tests\DotNetSearch.Application.Tests.csproj</FullPath>
   <IsExcluded>false</IsExcluded>
   <AnalysisResults>
     <AnalysisResult Id="FilesToAnalyze" Location="C:\Desenvolvimento\Repos\dotnet-search\.sonarqube\conf\3\FilesToAnalyze.txt" />

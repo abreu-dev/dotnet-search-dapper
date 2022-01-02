@@ -1,14 +1,15 @@
-å
-lC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\AutoMapper\DotNetSearchMappingProfile.cs 8r	
-Çu
-bC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Contratos\CategoriaContrato.cs 8r		
-c
-YC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Contratos\Contrato.csrp
-]C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Interfaces\IAppService.csr	
-y
-fC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Interfaces\ICategoriaAppService.csr	
-ç
-ZC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Services\AppService.cs 8r 
- !"#$Ç!›
-cC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Application\Services\CategoriaAppService.cs 8	rM	
- !"#$%'(*+,./0123456789:;<=?@BCDEFGHIJKLMNOPQRTUVWx	Ç !#$',./12459:;?DEGHJKOPT
+x
+[C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\BaseDbContext.cs 8r
+Çy
+cC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\DotNetSearchDbContext.cs 8r
+h
+XC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Context\IDbContext.csr
+	
+ô
+tC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Migrations\20211231212404_AutorLivroECategoria.cs 8rg	
+ !#$%&'()*+,-./012345678:;<=>?@ABCDEFGHIJKLMNOPQSTUVXYZ[]^_`acdefhiklnopqrÇ/
+ #%'()*+,-/1247:<>?@BDEGJKMPSX]ehknz
+fC:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Repositories\CategoriaRepository.cs 8r
+	
+¥
+]C:\Desenvolvimento\Repos\dotnet-search\src\DotNetSearch.Infra.Data\Repositories\Repository.cs 8r<	 !"$%&')*+,./01345679:;<>?@ACDEFGHÇ!&+056;@E
