@@ -47,10 +47,10 @@ namespace DotNetSearch.API.Controllers
             return Response(await _categoriaAppService.Remove(id));
         }
 
-        [HttpGet("search")]
-        public async Task<IEnumerable<CategoriaContrato>> Search([FromBody] SearchContrato searchContrato)
+        [HttpGet("linq-search")]
+        public async Task<IEnumerable<CategoriaContrato>> LinqSearch([FromBody] SearchContrato searchContrato)
         {
-            return await _categoriaAppService.Search(searchContrato);
+            return await _categoriaAppService.LinqSearch(searchContrato);
         }
     }
 }

@@ -13,6 +13,6 @@ namespace DotNetSearch.Application.Interfaces
         Task<ValidationResult> Update(CategoriaContrato categoriaContrato);
         Task<ValidationResult> Remove(Guid id);
 
-        Task<IEnumerable<CategoriaContrato>> Search(SearchContrato searchContrato);
+        Task<IEnumerable<CategoriaContrato>> LinqSearch(SearchContrato searchContrato);
     }
 }
