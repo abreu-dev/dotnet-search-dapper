@@ -2,10 +2,10 @@
 
 namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos
 {
-    public class SearchFilterContrato
+    public class LinqSearchFilterContrato
     {
         public string PropertyName { get; set; }
         public string PropertyValue { get; set; }
-        public SearchFilterOperation Operation { get; set; }
+        public LinqSearchFilterOperation Operation { get; set; }
     }
 }

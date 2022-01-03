@@ -1,6 +1,6 @@
 ﻿namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Enums
 {
-    public enum SearchSortDirection
+    public enum LinqSearchSortDirection
     {
         Asc = 0,
         Desc = 1

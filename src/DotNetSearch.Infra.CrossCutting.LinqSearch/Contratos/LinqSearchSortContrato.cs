@@ -2,9 +2,9 @@
 
 namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos
 {
-    public class SearchSortContrato
+    public class LinqSearchSortContrato
     {
         public string PropertyName { get; set; }
-        public SearchSortDirection Direction { get; set; }
+        public LinqSearchSortDirection Direction { get; set; }
     }
 }

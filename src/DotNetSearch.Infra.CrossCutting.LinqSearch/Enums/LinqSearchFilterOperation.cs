@@ -1,6 +1,6 @@
 ﻿namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Enums
 {
-    public enum SearchFilterOperation
+    public enum LinqSearchFilterOperation
     {
         Equals = 0,
         Like = 1

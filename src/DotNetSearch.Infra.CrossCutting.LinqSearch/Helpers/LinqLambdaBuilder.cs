@@ -9,16 +9,16 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers
 {
     public static class LinqLambdaBuilder
     {
-        public static Expression<Func<T, bool>> BuildPredicate<T>(SearchContrato searchContrato)
+        public static Expression<Func<T, bool>> BuildPredicate<T>(LinqlinqSearchContrato linqSearchContrato)
         {
             Expression<Func<T, bool>> predicate = null;
             ParameterExpression parameterExpression = Expression.Parameter(typeof(T), "x");
 
-            foreach (var filter in searchContrato.Filters)
+            foreach (var filter in linqSearchContrato.Filters)
             {
                 Expression<Func<T, bool>> filterExpression = null;
 
-                if (filter.Operation == SearchFilterOperation.Like)
+                if (filter.Operation == LinqSearchFilterOperation.Like)
                 {
                     filterExpression = Like<T>(parameterExpression, filter.PropertyName, filter.PropertyValue);
                 }

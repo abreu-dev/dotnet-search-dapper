@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Infra.Data.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.API.Tests", "tests\DotNetSearch.API.Tests\DotNetSearch.API.Tests.csproj", "{1DF961D4-823B-4907-B1E6-2509F6A57DD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Infra.CrossCutting.LinqSearch", "src\DotNetSearch.Infra.CrossCutting.LinqSearch\DotNetSearch.Infra.CrossCutting.LinqSearch.csproj", "{F573E050-C6F0-46C6-9B3F-E01297D1AE7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Infra.CrossCutting.LinqSearch", "src\DotNetSearch.Infra.CrossCutting.LinqSearch\DotNetSearch.Infra.CrossCutting.LinqSearch.csproj", "{F573E050-C6F0-46C6-9B3F-E01297D1AE7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Infra.CrossCutting.LinqSearch.Tests", "tests\DotNetSearch.Infra.CrossCutting.LinqSearch.Tests\DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.csproj", "{70F8D32E-237F-4BD0-B914-8FDF72F1142B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Infra.CrossCutting.LinqSearch.Tests", "tests\DotNetSearch.Infra.CrossCutting.LinqSearch.Tests\DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.csproj", "{70F8D32E-237F-4BD0-B914-8FDF72F1142B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Infra.CrossCutting.Dapper", "src\DotNetSearch.Infra.CrossCutting.Dapper\DotNetSearch.Infra.CrossCutting.Dapper.csproj", "{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +127,14 @@ Global
 		{70F8D32E-237F-4BD0-B914-8FDF72F1142B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{70F8D32E-237F-4BD0-B914-8FDF72F1142B}.Release|x64.ActiveCfg = Release|Any CPU
 		{70F8D32E-237F-4BD0-B914-8FDF72F1142B}.Release|x64.Build.0 = Release|Any CPU
+		{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}.Debug|x64.Build.0 = Debug|Any CPU
+		{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}.Release|x64.ActiveCfg = Release|Any CPU
+		{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,6 +151,7 @@ Global
 		{1DF961D4-823B-4907-B1E6-2509F6A57DD9} = {0F7A652C-99D4-4035-8EC8-DD047312BA87}
 		{F573E050-C6F0-46C6-9B3F-E01297D1AE7D} = {0187FB59-4D5A-4D91-B45E-123AC708A4EA}
 		{70F8D32E-237F-4BD0-B914-8FDF72F1142B} = {0F7A652C-99D4-4035-8EC8-DD047312BA87}
+		{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F} = {0187FB59-4D5A-4D91-B45E-123AC708A4EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5FEA1044-3F60-4E6C-A6EA-9DC4004B7965}

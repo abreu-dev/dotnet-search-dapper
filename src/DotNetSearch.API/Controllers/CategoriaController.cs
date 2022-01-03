@@ -48,9 +48,9 @@ namespace DotNetSearch.API.Controllers
         }
 
         [HttpGet("linq-search")]
-        public async Task<IEnumerable<CategoriaContrato>> LinqSearch([FromBody] SearchContrato searchContrato)
+        public async Task<IEnumerable<CategoriaContrato>> LinqSearch([FromBody] LinqlinqSearchContrato linqSearchContrato)
         {
-            return await _categoriaAppService.LinqSearch(searchContrato);
+            return await _categoriaAppService.LinqSearch(linqSearchContrato);
         }
     }
 }

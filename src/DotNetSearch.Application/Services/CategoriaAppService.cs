@@ -88,12 +88,12 @@ namespace DotNetSearch.Application.Services
             return validationResult;
         }
 
-        public async Task<IEnumerable<CategoriaContrato>> LinqSearch(SearchContrato searchContrato)
+        public async Task<IEnumerable<CategoriaContrato>> LinqSearch(LinqlinqSearchContrato linqSearchContrato)
         {
-            Expression<Func<Categoria, bool>> predicate = LinqLambdaBuilder.BuildPredicate<Categoria>(searchContrato);
+            Expression<Func<Categoria, bool>> predicate = LinqLambdaBuilder.BuildPredicate<Categoria>(linqSearchContrato);
 
-            var searchResult = await _categoriaRepository.CustomSearch(searchContrato.Page,
-                searchContrato.PageSize, predicate);
+            var searchResult = await _categoriaRepository.CustomSearch(linqSearchContrato.Page,
+                linqSearchContrato.PageSize, predicate);
 
             return _mapper.Map<IEnumerable<CategoriaContrato>>(searchResult);
         }
