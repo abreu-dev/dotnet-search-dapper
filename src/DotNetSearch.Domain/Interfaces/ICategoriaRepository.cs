@@ -11,5 +11,7 @@ namespace DotNetSearch.Domain.Interfaces
         Task<IEnumerable<Categoria>> CustomSearch(int page,
                                                   int pageSize,
                                                   Expression<Func<Categoria, bool>> predicate);
+
+        Task<IEnumerable<Categoria>> DapperSearch(string query);
     }
 }

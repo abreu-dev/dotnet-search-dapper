@@ -1,4 +1,5 @@
 ﻿using DotNetSearch.Application.Contratos;
+using DotNetSearch.Infra.CrossCutting.DapperSearch.Contratos;
 using DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos;
 using FluentValidation.Results;
 using System;
@@ -14,5 +15,6 @@ namespace DotNetSearch.Application.Interfaces
         Task<ValidationResult> Remove(Guid id);
 
         Task<IEnumerable<CategoriaContrato>> LinqSearch(LinqSearchContrato linqSearchContrato);
+        Task<IEnumerable<CategoriaContrato>> DapperSearch(DapperSearchContrato dapperSearchContrato);
     }
 }

@@ -1,6 +1,8 @@
-﻿using DotNetSearch.Domain.Entities;
+﻿using Dapper;
+using DotNetSearch.Domain.Entities;
 using DotNetSearch.Domain.Interfaces;
 using DotNetSearch.Infra.Data.Context;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,7 +22,19 @@ namespace DotNetSearch.Infra.Data.Repositories
         {
             return await Query()
                 .Where(predicate)
+                .Skip(page * pageSize)
+                .Take(pageSize)
                 .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Categoria>> DapperSearch(string query)
+        {
+            using (SqlConnection conexao = 
+                new SqlConnection("Server=localhost,1433;Database=DotNetSearch;User ID=sa;Password=RfAjiY5LL5"))
+            {
+                return await conexao.QueryAsync<Categoria>(
+                    "SELECT * FROM Categoria C");
+            }
         }
     }
 }
