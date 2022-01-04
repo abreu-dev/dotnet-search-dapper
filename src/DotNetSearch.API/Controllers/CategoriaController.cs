@@ -1,7 +1,6 @@
 ﻿using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
-using DotNetSearch.Infra.CrossCutting.DapperSearch.Contratos;
-using DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos;
+using DotNetSearch.Infra.CrossCutting.Search.Contratos;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -48,16 +47,10 @@ namespace DotNetSearch.API.Controllers
             return Response(await _categoriaAppService.Remove(id));
         }
 
-        [HttpGet("linq-search")]
-        public async Task<IEnumerable<CategoriaContrato>> LinqSearch([FromBody] LinqSearchContrato linqSearchContrato)
+        [HttpGet("search")]
+        public async Task<IEnumerable<CategoriaContrato>> Search([FromBody] SearchContrato searchContrato)
         {
-            return await _categoriaAppService.LinqSearch(linqSearchContrato);
-        }
-
-        [HttpGet("dapper-search")]
-        public async Task<IEnumerable<CategoriaContrato>> DapperSearch([FromBody] DapperSearchContrato dapperSearchContrato)
-        {
-            return await _categoriaAppService.DapperSearch(dapperSearchContrato);
+            return await _categoriaAppService.Search(searchContrato);
         }
     }
 }

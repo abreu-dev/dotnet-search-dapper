@@ -1,6 +1,8 @@
-﻿using DotNetSearch.Domain.Entities;
+﻿using Dapper;
+using DotNetSearch.Domain.Entities;
 using DotNetSearch.Domain.Interfaces;
 using DotNetSearch.Infra.Data.Context;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -40,7 +42,27 @@ namespace DotNetSearch.Infra.Data.Repositories
 
         public virtual async Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate)
         {
-            return await Query().Where(predicate).ToListAsync();
+            return await Query()
+                .Where(predicate)
+                .ToListAsync();
+        }
+
+        public virtual async Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate, int page, int pageSize)
+        {
+            return await Query()
+                .Where(predicate)
+                .Skip(page * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+        }
+
+        public virtual async Task<IEnumerable<TEntity>> Search(string query)
+        {
+            using (SqlConnection conexao =
+                new SqlConnection("Server=localhost,1433;Database=DotNetSearch;User ID=sa;Password=RfAjiY5LL5"))
+            {
+                return await conexao.QueryAsync<TEntity>(query);
+            }
         }
 
         public virtual async Task<IEnumerable<TEntity>> GetAll()
@@ -50,8 +72,7 @@ namespace DotNetSearch.Infra.Data.Repositories
 
         public virtual async Task<TEntity> GetById(Guid id)
         {
-            var teste = Query();
-            return await teste.FirstOrDefaultAsync(x => x.Id == id);
+            return await Query().FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public virtual void Add(TEntity entity)

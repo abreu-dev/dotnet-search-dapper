@@ -12,6 +12,8 @@ namespace DotNetSearch.Domain.Interfaces
         IUnitOfWork UnitOfWork { get; }
 
         Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate);
+        Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate, int page, int pageSize);
+        Task<IEnumerable<TEntity>> Search(string query);
         Task<IEnumerable<TEntity>> GetAll();
         Task<TEntity> GetById(Guid id);
         IQueryable<TEntity> Query();

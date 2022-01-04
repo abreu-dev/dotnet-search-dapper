@@ -4,4 +4,12 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetSearch.Infra.CrossCutting.Search\DotNetSearch.Infra.CrossCutting.Search.csproj" />
+  </ItemGroup>
+
 </Project>

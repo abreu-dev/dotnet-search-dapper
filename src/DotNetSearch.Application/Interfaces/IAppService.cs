@@ -1,4 +1,5 @@
 ﻿using DotNetSearch.Application.Contratos;
+using DotNetSearch.Infra.CrossCutting.Search.Contratos;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace DotNetSearch.Application.Interfaces
         where TContrato : Contrato
     {
         Task<IEnumerable<TContrato>> GetAll();
+        Task<IEnumerable<TContrato>> Search(SearchContrato searchContrato);
         Task<TContrato> GetById(Guid id);
     }
 }

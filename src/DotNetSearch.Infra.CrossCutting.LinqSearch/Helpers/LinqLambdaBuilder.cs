@@ -1,24 +1,24 @@
-﻿using DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos;
-using DotNetSearch.Infra.CrossCutting.LinqSearch.Enums;
+﻿using DotNetSearch.Infra.CrossCutting.Search.Contratos;
+using DotNetSearch.Infra.CrossCutting.Search.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers
+namespace DotNetSearch.Infra.CrossCutting.Search.Helpers
 {
     public static class LinqLambdaBuilder
     {
-        public static Expression<Func<T, bool>> BuildPredicate<T>(LinqSearchContrato linqSearchContrato)
+        public static Expression<Func<T, bool>> BuildPredicate<T>(SearchContrato searchContrato)
         {
             Expression<Func<T, bool>> predicate = null;
             ParameterExpression parameterExpression = Expression.Parameter(typeof(T), "x");
 
-            foreach (var filter in linqSearchContrato.Filters)
+            foreach (var filter in searchContrato.Filters)
             {
                 Expression<Func<T, bool>> filterExpression = null;
 
-                if (filter.Operation == LinqSearchFilterOperation.Like)
+                if (filter.Operation == SearchFilterOperation.Like)
                 {
                     filterExpression = Like<T>(parameterExpression, filter.PropertyName, filter.PropertyValue);
                 }

@@ -1,11 +1,11 @@
-﻿using DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos;
-using DotNetSearch.Infra.CrossCutting.LinqSearch.Enums;
-using DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers;
+﻿using DotNetSearch.Infra.CrossCutting.Search.Contratos;
+using DotNetSearch.Infra.CrossCutting.Search.Enums;
+using DotNetSearch.Infra.CrossCutting.Search.Helpers;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Xunit;
 
-namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
+namespace DotNetSearch.Infra.CrossCutting.Search.Tests.Helpers
 {
     public class LinqLambdaBuilderTests
     {
@@ -14,20 +14,20 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
         public void BuildPredicate_ShouldBuildExpressionWithOneFilter()
         {
             var expected = "x => (x.Nome == \"Terror\")";
-            var linqSearchContrato = new LinqSearchContrato()
+            var searchContrato = new SearchContrato()
             {
-                Filters = new List<LinqSearchFilterContrato>()
+                Filters = new List<SearchFilterContrato>()
                 {
-                    new LinqSearchFilterContrato()
+                    new SearchFilterContrato()
                     {
                         PropertyName = "Nome",
                         PropertyValue = "Terror",
-                        Operation = LinqSearchFilterOperation.Equals
+                        Operation = SearchFilterOperation.Equals
                     }
                 }
             };
 
-            var actual = LinqLambdaBuilder.BuildPredicate<MyParentConcreteClass>(linqSearchContrato);
+            var actual = LinqLambdaBuilder.BuildPredicate<MyParentConcreteClass>(searchContrato);
 
             Assert.Equal(expected, actual.ToString());
         }
@@ -36,26 +36,26 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
         public void BuildPredicate_ShouldBuildExpressionWithTwoFilters()
         {
             var expected = "x => ((x.Nome == \"Terror\") OrElse (x.Nome == \"Comédia\"))";
-            var linqSearchContrato = new LinqSearchContrato()
+            var searchContrato = new SearchContrato()
             {
-                Filters = new List<LinqSearchFilterContrato>()
+                Filters = new List<SearchFilterContrato>()
                 {
-                    new LinqSearchFilterContrato()
+                    new SearchFilterContrato()
                     {
                         PropertyName = "Nome",
                         PropertyValue = "Terror",
-                        Operation = LinqSearchFilterOperation.Equals
+                        Operation = SearchFilterOperation.Equals
                     },
-                    new LinqSearchFilterContrato()
+                    new SearchFilterContrato()
                     {
                         PropertyName = "Nome",
                         PropertyValue = "Comédia",
-                        Operation = LinqSearchFilterOperation.Equals
+                        Operation = SearchFilterOperation.Equals
                     }
                 }
             };
 
-            var actual = LinqLambdaBuilder.BuildPredicate<MyParentConcreteClass>(linqSearchContrato);
+            var actual = LinqLambdaBuilder.BuildPredicate<MyParentConcreteClass>(searchContrato);
 
             Assert.Equal(expected, actual.ToString());
         }

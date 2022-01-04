@@ -5,14 +5,8 @@ using DotNetSearch.Domain.Common;
 using DotNetSearch.Domain.Entities;
 using DotNetSearch.Domain.Interfaces;
 using DotNetSearch.Domain.Validators.CategoriaValidators;
-using DotNetSearch.Infra.CrossCutting.DapperSearch.Contratos;
-using DotNetSearch.Infra.CrossCutting.DapperSearch.Helpers;
-using DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos;
-using DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers;
 using FluentValidation.Results;
 using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace DotNetSearch.Application.Services
@@ -88,25 +82,6 @@ namespace DotNetSearch.Application.Services
             }
 
             return validationResult;
-        }
-
-        public async Task<IEnumerable<CategoriaContrato>> LinqSearch(LinqSearchContrato linqSearchContrato)
-        {
-            Expression<Func<Categoria, bool>> predicate = LinqLambdaBuilder.BuildPredicate<Categoria>(linqSearchContrato);
-
-            var searchResult = await _categoriaRepository.CustomSearch(linqSearchContrato.Page,
-                linqSearchContrato.PageSize, predicate);
-
-            return _mapper.Map<IEnumerable<CategoriaContrato>>(searchResult);
-        }
-
-        public async Task<IEnumerable<CategoriaContrato>> DapperSearch(DapperSearchContrato dapperSearchContrato)
-        {
-            string query = DapperQueryBuilder.BuildQuery(dapperSearchContrato);
-
-            var searchResult = await _categoriaRepository.DapperSearch(query);
-
-            return _mapper.Map<IEnumerable<CategoriaContrato>>(searchResult);
         }
     }
 }
