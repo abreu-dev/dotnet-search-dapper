@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Infra.CrossCut
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Infra.CrossCutting.LinqSearch.Tests", "tests\DotNetSearch.Infra.CrossCutting.LinqSearch.Tests\DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.csproj", "{70F8D32E-237F-4BD0-B914-8FDF72F1142B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Infra.CrossCutting.Dapper", "src\DotNetSearch.Infra.CrossCutting.Dapper\DotNetSearch.Infra.CrossCutting.Dapper.csproj", "{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSearch.Infra.CrossCutting.DapperSearch", "src\DotNetSearch.Infra.CrossCutting.Dapper\DotNetSearch.Infra.CrossCutting.DapperSearch.csproj", "{F6EB2FB9-D0BB-438A-B4A9-3D248DE4776F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

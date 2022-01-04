@@ -14,7 +14,7 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
         public void BuildPredicate_ShouldBuildExpressionWithOneFilter()
         {
             var expected = "x => (x.Nome == \"Terror\")";
-            var linqSearchContrato = new LinqlinqSearchContrato()
+            var linqSearchContrato = new LinqSearchContrato()
             {
                 Filters = new List<LinqSearchFilterContrato>()
                 {
@@ -36,7 +36,7 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Tests.Helpers
         public void BuildPredicate_ShouldBuildExpressionWithTwoFilters()
         {
             var expected = "x => ((x.Nome == \"Terror\") OrElse (x.Nome == \"Comédia\"))";
-            var linqSearchContrato = new LinqlinqSearchContrato()
+            var linqSearchContrato = new LinqSearchContrato()
             {
                 Filters = new List<LinqSearchFilterContrato>()
                 {

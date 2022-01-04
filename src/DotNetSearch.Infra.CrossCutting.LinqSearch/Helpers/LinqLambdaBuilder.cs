@@ -9,7 +9,7 @@ namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Helpers
 {
     public static class LinqLambdaBuilder
     {
-        public static Expression<Func<T, bool>> BuildPredicate<T>(LinqlinqSearchContrato linqSearchContrato)
+        public static Expression<Func<T, bool>> BuildPredicate<T>(LinqSearchContrato linqSearchContrato)
         {
             Expression<Func<T, bool>> predicate = null;
             ParameterExpression parameterExpression = Expression.Parameter(typeof(T), "x");

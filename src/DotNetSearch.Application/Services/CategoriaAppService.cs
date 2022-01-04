@@ -88,7 +88,7 @@ namespace DotNetSearch.Application.Services
             return validationResult;
         }
 
-        public async Task<IEnumerable<CategoriaContrato>> LinqSearch(LinqlinqSearchContrato linqSearchContrato)
+        public async Task<IEnumerable<CategoriaContrato>> LinqSearch(LinqSearchContrato linqSearchContrato)
         {
             Expression<Func<Categoria, bool>> predicate = LinqLambdaBuilder.BuildPredicate<Categoria>(linqSearchContrato);
 

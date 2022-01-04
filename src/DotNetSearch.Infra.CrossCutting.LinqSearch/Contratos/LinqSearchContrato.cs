@@ -2,7 +2,7 @@
 
 namespace DotNetSearch.Infra.CrossCutting.LinqSearch.Contratos
 {
-    public class LinqlinqSearchContrato
+    public class LinqSearchContrato
     {
         public int Page { get; set; }
         public int PageSize { get; set; }
