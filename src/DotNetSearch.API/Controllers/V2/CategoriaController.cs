@@ -6,8 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DotNetSearch.API.Controllers
+namespace DotNetSearch.API.Controllers.V2
 {
+    [ApiVersion("2")]
     public class CategoriaController : BaseController
     {
         private readonly ICategoriaAppService _categoriaAppService;

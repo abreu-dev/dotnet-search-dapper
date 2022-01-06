@@ -3,10 +3,11 @@ using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
-namespace DotNetSearch.API.Controllers
+namespace DotNetSearch.API.Controllers.V2
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [ApiVersion("2")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     public abstract class BaseController : ControllerBase
     {
         protected new IActionResult Response(ValidationResult validationResult)

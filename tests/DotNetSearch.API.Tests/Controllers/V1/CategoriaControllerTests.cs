@@ -1,5 +1,6 @@
 ﻿using DotNetSearch.API.Common;
 using DotNetSearch.API.Controllers;
+using DotNetSearch.API.Controllers.V1;
 using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
 using FluentValidation.Results;
@@ -10,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace DotNetSearch.API.Tests.Controllers
+namespace DotNetSearch.API.Tests.Controllers.V1
 {
     public class CategoriaControllerTests
     {
