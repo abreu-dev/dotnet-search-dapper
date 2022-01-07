@@ -11,8 +11,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotNetSearch.Domain\DotNetSearch.Domain.csproj" />
-    <ProjectReference Include="..\DotNetSearch.Infra.CrossCutting.DapperSearch\DotNetSearch.Infra.CrossCutting.DapperSearch.csproj" />
-    <ProjectReference Include="..\DotNetSearch.Infra.CrossCutting.LinqSearch\DotNetSearch.Infra.CrossCutting.LinqSearch.csproj" />
   </ItemGroup>
 
 </Project>
