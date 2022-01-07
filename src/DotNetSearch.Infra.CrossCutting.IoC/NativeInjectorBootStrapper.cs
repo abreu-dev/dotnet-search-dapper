@@ -28,6 +28,7 @@ namespace DotNetSearch.Infra.CrossCutting.IoC
             // Infra Data - Repositories
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IAutorRepository, AutorRepository>();
+            services.AddScoped<ILivroRepository, LivroRepository>();
 
             // Application - AutoMapper
             services.AddAutoMapper(typeof(DotNetSearchMappingProfile));
@@ -35,6 +36,7 @@ namespace DotNetSearch.Infra.CrossCutting.IoC
             // Application - AppServices
             services.AddScoped<ICategoriaAppService, CategoriaAppService>();
             services.AddScoped<IAutorAppService, AutorAppService>();
+            services.AddScoped<ILivroAppService, LivroAppService>();
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
 using DotNetSearch.Application.Services;
+using DotNetSearch.Tests.Fixtures;
 using DotNetSearch.Domain.Common;
 using DotNetSearch.Domain.Entities;
 using DotNetSearch.Domain.Interfaces;
@@ -30,8 +30,9 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Add_ShouldFailValidation_WhenInvalidCategoria()
         {
-            var contrato = new CategoriaContrato() { Nome = "" };
-            var entidade = new Categoria() { Nome = contrato.Nome };
+            var contrato = CategoriaFixture.BuildContrato();
+            var entidade = CategoriaFixture.BuildEntity();
+            entidade.Nome = "";
             _mapper.Map<Categoria>(contrato).Returns(entidade);
 
             var resultado = _categoriaAppService.Add(contrato).GetAwaiter().GetResult();
@@ -42,8 +43,8 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Add_ShouldAddAndCommit_WhenValidCategoria()
         {
-            var contrato = new CategoriaContrato() { Nome = "Terror" };
-            var entidade = new Categoria() { Nome = contrato.Nome };
+            var contrato = CategoriaFixture.BuildContrato();
+            var entidade = CategoriaFixture.BuildEntity();
             _mapper.Map<Categoria>(contrato).Returns(entidade);
 
             var resultado = _categoriaAppService.Add(contrato).GetAwaiter().GetResult();
@@ -58,8 +59,9 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Update_ShouldFailValidation_WhenInvalidCategoria()
         {
-            var contrato = new CategoriaContrato() { Nome = "" };
-            var entidade = new Categoria() { Nome = contrato.Nome };
+            var contrato = CategoriaFixture.BuildContrato();
+            var entidade = CategoriaFixture.BuildEntity();
+            entidade.Nome = "";
             _mapper.Map<Categoria>(contrato).Returns(entidade);
 
             var resultado = _categoriaAppService.Update(contrato).GetAwaiter().GetResult();
@@ -70,24 +72,27 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Update_ShouldFailValidation_WhenCategoriaNotFound()
         {
-            var contrato = new CategoriaContrato() { Id = Guid.NewGuid(), Nome = "Terror" };
-            var entidade = new Categoria() { Id = contrato.Id, Nome = contrato.Nome };
+            var contrato = CategoriaFixture.BuildContrato(true);
+            var entidade = CategoriaFixture.BuildEntity();
+            entidade.Id = contrato.Id;
             _mapper.Map<Categoria>(contrato).Returns(entidade);
             _categoriaRepository.GetById(contrato.Id).ReturnsNull();
 
             var resultado = _categoriaAppService.Update(contrato).GetAwaiter().GetResult();
 
             Assert.False(resultado.IsValid);
-            Assert.Equal(DomainMessages.NotFound.Format("Categoria").Message, 
+            Assert.Equal(DomainMessages.NotFound.Format("Categoria").Message,
                 resultado.Errors.Single().ErrorMessage);
         }
 
         [Fact]
         public void Update_ShouldUpdateAndCommit_WhenValidCategoria()
         {
-            var contrato = new CategoriaContrato() { Id = Guid.NewGuid(), Nome = "Terror" };
-            var entidade = new Categoria() { Id = contrato.Id, Nome = contrato.Nome };
-            var dbEntity = new Categoria() { Id = contrato.Id, Nome = "Comédia" };
+            var contrato = CategoriaFixture.BuildContrato(true);
+            var entidade = CategoriaFixture.BuildEntity();
+            entidade.Id = contrato.Id;
+            var dbEntity = CategoriaFixture.BuildEntity();
+            dbEntity.Id = contrato.Id;
             _mapper.Map<Categoria>(contrato).Returns(entidade);
             _categoriaRepository.GetById(contrato.Id).Returns(dbEntity);
             _mapper.Map(entidade, dbEntity).Returns(entidade);
@@ -112,7 +117,7 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Remove_ShouldFailValidation_WhenCategoriaNotFound()
         {
-            var dbEntity = new Categoria() { Id = Guid.NewGuid(), Nome = "Terror" };
+            var dbEntity = CategoriaFixture.BuildEntity(true);
             _categoriaRepository.GetById(dbEntity.Id).ReturnsNull();
 
             var resultado = _categoriaAppService.Remove(dbEntity.Id).GetAwaiter().GetResult();
@@ -125,7 +130,7 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Remove_ShouldRemoveAndCommit_WhenValidCategoria()
         {
-            var dbEntity = new Categoria() { Id = Guid.NewGuid(), Nome = "Terror" };
+            var dbEntity = CategoriaFixture.BuildEntity(true);
             _categoriaRepository.GetById(dbEntity.Id).Returns(dbEntity);
 
             var resultado = _categoriaAppService.Remove(dbEntity.Id).GetAwaiter().GetResult();

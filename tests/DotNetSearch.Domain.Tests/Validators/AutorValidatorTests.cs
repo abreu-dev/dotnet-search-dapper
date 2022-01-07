@@ -1,5 +1,5 @@
-﻿using DotNetSearch.Domain.Common;
-using DotNetSearch.Domain.Entities;
+﻿using DotNetSearch.Tests.Fixtures;
+using DotNetSearch.Domain.Common;
 using DotNetSearch.Domain.Validators.AutorValidators;
 using System;
 using System.Linq;
@@ -13,11 +13,8 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void AddAutorValidator_ShouldFailValidation_WhenEmptyNome()
         {
-            var autor = new Autor()
-            {
-                Nome = "",
-                DataNascimento = DateTime.UtcNow
-            };
+            var autor = AutorFixture.BuildEntity();
+            autor.Nome = "";
 
             var validationResult = new AddAutorValidator().Validate(autor);
 
@@ -28,11 +25,8 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void AddAutorValidator_ShouldFailValidation_WhenEmptyDataNascimento()
         {
-            var autor = new Autor()
-            {
-                Nome = "Stephen King",
-                DataNascimento = DateTime.MinValue
-            };
+            var autor = AutorFixture.BuildEntity();
+            autor.DataNascimento = DateTime.MinValue;
 
             var validationResult = new AddAutorValidator().Validate(autor);
 
@@ -43,11 +37,7 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void AddAutorValidator_ShouldBeValid_WhenBeWithinValidationRules()
         {
-            var autor = new Autor()
-            {
-                Nome = "Stephen King",
-                DataNascimento = DateTime.UtcNow
-            };
+            var autor = AutorFixture.BuildEntity();
 
             var validationResult = new AddAutorValidator().Validate(autor);
 
@@ -60,12 +50,7 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void UpdateAutorValidator_ShouldFailValidation_WhenEmptyId()
         {
-            var autor = new Autor()
-            {
-                Id = Guid.Empty,
-                Nome = "Stephen King",
-                DataNascimento = DateTime.UtcNow
-            };
+            var autor = AutorFixture.BuildEntity();
 
             var validationResult = new UpdateAutorValidator().Validate(autor);
 
@@ -76,12 +61,8 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void UpdateAutorValidator_ShouldFailValidation_WhenEmptyNome()
         {
-            var autor = new Autor()
-            {
-                Id = Guid.NewGuid(),
-                Nome = "",
-                DataNascimento = DateTime.UtcNow
-            };
+            var autor = AutorFixture.BuildEntity(true);
+            autor.Nome = "";
 
             var validationResult = new UpdateAutorValidator().Validate(autor);
 
@@ -92,12 +73,8 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void UpdateAutorValidator_ShouldFailValidation_WhenEmptyDataNascimento()
         {
-            var autor = new Autor()
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Stephen King",
-                DataNascimento = DateTime.MinValue
-            };
+            var autor = AutorFixture.BuildEntity(true);
+            autor.DataNascimento = DateTime.MinValue;
 
             var validationResult = new UpdateAutorValidator().Validate(autor);
 
@@ -108,12 +85,7 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void UpdateAutorValidator_ShouldBeValid_WhenBeWithinValidationRules()
         {
-            var autor = new Autor()
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Stephen King",
-                DataNascimento = DateTime.UtcNow
-            };
+            var autor = AutorFixture.BuildEntity(true);
 
             var validationResult = new UpdateAutorValidator().Validate(autor);
 

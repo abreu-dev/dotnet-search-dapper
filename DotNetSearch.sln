@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Infra.Data.Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.API.Tests", "tests\DotNetSearch.API.Tests\DotNetSearch.API.Tests.csproj", "{1DF961D4-823B-4907-B1E6-2509F6A57DD9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetSearch.Tests", "tests\DotNetSearch.Tests\DotNetSearch.Tests.csproj", "{ACC97344-80B3-4B5C-B813-79C471A45F86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,14 @@ Global
 		{1DF961D4-823B-4907-B1E6-2509F6A57DD9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1DF961D4-823B-4907-B1E6-2509F6A57DD9}.Release|x64.ActiveCfg = Release|x64
 		{1DF961D4-823B-4907-B1E6-2509F6A57DD9}.Release|x64.Build.0 = Release|x64
+		{ACC97344-80B3-4B5C-B813-79C471A45F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACC97344-80B3-4B5C-B813-79C471A45F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACC97344-80B3-4B5C-B813-79C471A45F86}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ACC97344-80B3-4B5C-B813-79C471A45F86}.Debug|x64.Build.0 = Debug|Any CPU
+		{ACC97344-80B3-4B5C-B813-79C471A45F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACC97344-80B3-4B5C-B813-79C471A45F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACC97344-80B3-4B5C-B813-79C471A45F86}.Release|x64.ActiveCfg = Release|Any CPU
+		{ACC97344-80B3-4B5C-B813-79C471A45F86}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -119,6 +129,7 @@ Global
 		{3E904909-BC54-4634-86FB-BA331411083E} = {0F7A652C-99D4-4035-8EC8-DD047312BA87}
 		{D46D438F-7467-423A-BB53-1A0F812DB2A1} = {0F7A652C-99D4-4035-8EC8-DD047312BA87}
 		{1DF961D4-823B-4907-B1E6-2509F6A57DD9} = {0F7A652C-99D4-4035-8EC8-DD047312BA87}
+		{ACC97344-80B3-4B5C-B813-79C471A45F86} = {0F7A652C-99D4-4035-8EC8-DD047312BA87}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5FEA1044-3F60-4E6C-A6EA-9DC4004B7965}

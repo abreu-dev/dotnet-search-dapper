@@ -4,14 +4,16 @@ using DotNetSearch.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DotNetSearch.Infra.Data.Migrations
 {
     [DbContext(typeof(DotNetSearchDbContext))]
-    partial class DotNetSearchDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220107184044_RenameLivroCategorias")]
+    partial class RenameLivroCategorias
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

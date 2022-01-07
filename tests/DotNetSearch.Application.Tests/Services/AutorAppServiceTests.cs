@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
 using DotNetSearch.Application.Services;
+using DotNetSearch.Tests.Fixtures;
 using DotNetSearch.Domain.Common;
 using DotNetSearch.Domain.Entities;
 using DotNetSearch.Domain.Interfaces;
@@ -30,8 +30,9 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Add_ShouldFailValidation_WhenInvalidAutor()
         {
-            var contrato = new AutorContrato() { Nome = "" };
-            var entidade = new Autor() { Nome = contrato.Nome };
+            var contrato = AutorFixture.BuildContrato();
+            var entidade = AutorFixture.BuildEntity();
+            entidade.Nome = "";
             _mapper.Map<Autor>(contrato).Returns(entidade);
 
             var resultado = _autorAppService.Add(contrato).GetAwaiter().GetResult();
@@ -42,8 +43,8 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Add_ShouldAddAndCommit_WhenValidAutor()
         {
-            var contrato = new AutorContrato() { Nome = "Stephen King", DataNascimento = DateTime.UtcNow };
-            var entidade = new Autor() { Nome = contrato.Nome, DataNascimento = DateTime.UtcNow };
+            var contrato = AutorFixture.BuildContrato();
+            var entidade = AutorFixture.BuildEntity();
             _mapper.Map<Autor>(contrato).Returns(entidade);
 
             var resultado = _autorAppService.Add(contrato).GetAwaiter().GetResult();
@@ -58,8 +59,9 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Update_ShouldFailValidation_WhenInvalidAutor()
         {
-            var contrato = new AutorContrato() { Nome = "" };
-            var entidade = new Autor() { Nome = contrato.Nome };
+            var contrato = AutorFixture.BuildContrato();
+            var entidade = AutorFixture.BuildEntity();
+            entidade.Nome = "";
             _mapper.Map<Autor>(contrato).Returns(entidade);
 
             var resultado = _autorAppService.Update(contrato).GetAwaiter().GetResult();
@@ -70,8 +72,9 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Update_ShouldFailValidation_WhenAutorNotFound()
         {
-            var contrato = new AutorContrato() { Id = Guid.NewGuid(), Nome = "Stephen King", DataNascimento = DateTime.UtcNow };
-            var entidade = new Autor() { Id = contrato.Id, Nome = contrato.Nome, DataNascimento = DateTime.UtcNow };
+            var contrato = AutorFixture.BuildContrato(true);
+            var entidade = AutorFixture.BuildEntity();
+            entidade.Id = contrato.Id;
             _mapper.Map<Autor>(contrato).Returns(entidade);
             _autorRepository.GetById(contrato.Id).ReturnsNull();
 
@@ -85,9 +88,11 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Update_ShouldUpdateAndCommit_WhenValidAutor()
         {
-            var contrato = new AutorContrato() { Id = Guid.NewGuid(), Nome = "Stephen King", DataNascimento = DateTime.UtcNow };
-            var entidade = new Autor() { Id = contrato.Id, Nome = contrato.Nome, DataNascimento = contrato.DataNascimento };
-            var dbEntity = new Autor() { Id = contrato.Id, Nome = "Comédia", DataNascimento = DateTime.UtcNow.AddDays(-30) };
+            var contrato = AutorFixture.BuildContrato(true);
+            var entidade = AutorFixture.BuildEntity();
+            entidade.Id = contrato.Id;
+            var dbEntity = AutorFixture.BuildEntity();
+            dbEntity.Id = contrato.Id;
             _mapper.Map<Autor>(contrato).Returns(entidade);
             _autorRepository.GetById(contrato.Id).Returns(dbEntity);
             _mapper.Map(entidade, dbEntity).Returns(entidade);
@@ -112,7 +117,7 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Remove_ShouldFailValidation_WhenAutorNotFound()
         {
-            var dbEntity = new Autor() { Id = Guid.NewGuid(), Nome = "Stephen King" };
+            var dbEntity = AutorFixture.BuildEntity(true);
             _autorRepository.GetById(dbEntity.Id).ReturnsNull();
 
             var resultado = _autorAppService.Remove(dbEntity.Id).GetAwaiter().GetResult();
@@ -125,7 +130,7 @@ namespace DotNetSearch.Application.Tests.Services
         [Fact]
         public void Remove_ShouldRemoveAndCommit_WhenValidAutor()
         {
-            var dbEntity = new Autor() { Id = Guid.NewGuid(), Nome = "Stephen King" };
+            var dbEntity = AutorFixture.BuildEntity(true);
             _autorRepository.GetById(dbEntity.Id).Returns(dbEntity);
 
             var resultado = _autorAppService.Remove(dbEntity.Id).GetAwaiter().GetResult();

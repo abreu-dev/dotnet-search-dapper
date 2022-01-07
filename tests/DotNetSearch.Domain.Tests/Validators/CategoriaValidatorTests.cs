@@ -1,5 +1,5 @@
-﻿using DotNetSearch.Domain.Common;
-using DotNetSearch.Domain.Entities;
+﻿using DotNetSearch.Tests.Fixtures;
+using DotNetSearch.Domain.Common;
 using DotNetSearch.Domain.Validators.CategoriaValidators;
 using System;
 using System.Linq;
@@ -13,10 +13,8 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void AddCategoriaValidator_ShouldFailValidation_WhenEmptyNome()
         {
-            var categoria = new Categoria()
-            {
-                Nome = ""
-            };
+            var categoria = CategoriaFixture.BuildEntity();
+            categoria.Nome = "";
 
             var validationResult = new AddCategoriaValidator().Validate(categoria);
 
@@ -27,10 +25,7 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void AddCategoriaValidator_ShouldBeValid_WhenBeWithinValidationRules()
         {
-            var categoria = new Categoria()
-            {
-                Nome = "Terror"
-            };
+            var categoria = CategoriaFixture.BuildEntity();
 
             var validationResult = new AddCategoriaValidator().Validate(categoria);
 
@@ -43,11 +38,7 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void UpdateCategoriaValidator_ShouldFailValidation_WhenEmptyId()
         {
-            var categoria = new Categoria()
-            {
-                Id = Guid.Empty,
-                Nome = "Terror"
-            };
+            var categoria = CategoriaFixture.BuildEntity();
 
             var validationResult = new UpdateCategoriaValidator().Validate(categoria);
 
@@ -58,11 +49,8 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void UpdateCategoriaValidator_ShouldFailValidation_WhenEmptyNome()
         {
-            var categoria = new Categoria()
-            {
-                Id = Guid.NewGuid(),
-                Nome = ""
-            };
+            var categoria = CategoriaFixture.BuildEntity(true);
+            categoria.Nome = "";
 
             var validationResult = new UpdateCategoriaValidator().Validate(categoria);
 
@@ -73,11 +61,7 @@ namespace DotNetSearch.Domain.Tests.Validators
         [Fact]
         public void UpdateCategoriaValidator_ShouldBeValid_WhenBeWithinValidationRules()
         {
-            var categoria = new Categoria()
-            {
-                Id = Guid.NewGuid(),
-                Nome = "Terror"
-            };
+            var categoria = CategoriaFixture.BuildEntity(true);
 
             var validationResult = new UpdateCategoriaValidator().Validate(categoria);
 
