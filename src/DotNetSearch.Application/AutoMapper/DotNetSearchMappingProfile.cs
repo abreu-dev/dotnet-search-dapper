@@ -11,6 +11,10 @@ namespace DotNetSearch.Application.AutoMapper
             CreateMap<Categoria, CategoriaContrato>()
                 .ReverseMap();
             CreateMap<Categoria, Categoria>();
+
+            CreateMap<Autor, AutorContrato>()
+                .ReverseMap();
+            CreateMap<Autor, Autor>();
         }
     }
 }

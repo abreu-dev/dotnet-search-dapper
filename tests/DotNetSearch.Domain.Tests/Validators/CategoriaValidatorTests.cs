@@ -9,6 +9,7 @@ namespace DotNetSearch.Domain.Tests.Validators
 {
     public class CategoriaValidatorTests
     {
+        #region AddCategoriaValidator
         [Fact]
         public void AddCategoriaValidator_ShouldFailValidation_WhenEmptyNome()
         {
@@ -36,7 +37,9 @@ namespace DotNetSearch.Domain.Tests.Validators
             Assert.True(validationResult.IsValid);
             Assert.Empty(validationResult.Errors);
         }
+        #endregion
 
+        #region UpdateCategoriaValidator
         [Fact]
         public void UpdateCategoriaValidator_ShouldFailValidation_WhenEmptyId()
         {
@@ -81,7 +84,9 @@ namespace DotNetSearch.Domain.Tests.Validators
             Assert.True(validationResult.IsValid);
             Assert.Empty(validationResult.Errors);
         }
+        #endregion
 
+        #region RemoveCategoriaValidator
         [Fact]
         public void RemoveCategoriaValidator_ShouldFailValidation_WhenEmptyId()
         {
@@ -99,5 +104,6 @@ namespace DotNetSearch.Domain.Tests.Validators
             Assert.True(validationResult.IsValid);
             Assert.Empty(validationResult.Errors);
         }
+        #endregion
     }
 }

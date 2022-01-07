@@ -28,23 +28,5 @@ namespace DotNetSearch.API.Controllers.V2
         {
             return await _categoriaAppService.DapperGetById(id);
         }
-
-        [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CategoriaContrato categoriaContrato)
-        {
-            return Response(await _categoriaAppService.Add(categoriaContrato));
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] CategoriaContrato categoriaContrato)
-        {
-            return Response(await _categoriaAppService.Update(categoriaContrato));
-        }
-
-        [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> Remove(Guid id)
-        {
-            return Response(await _categoriaAppService.Remove(id));
-        }
     }
 }

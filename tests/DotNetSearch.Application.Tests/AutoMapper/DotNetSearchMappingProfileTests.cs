@@ -16,6 +16,7 @@ namespace DotNetSearch.Application.Tests.AutoMapper
             _mapper = new MapperConfiguration(p => p.AddProfile(new DotNetSearchMappingProfile())).CreateMapper();
         }
 
+        #region Categoria
         [Fact]
         public void Map_ShouldMapCategoriaToCategoriaContrato()
         {
@@ -76,5 +77,69 @@ namespace DotNetSearch.Application.Tests.AutoMapper
             Assert.Equal(categoriaSource.Id, categoriaDestination.Id);
             Assert.Equal(categoriaSource.Nome, categoriaDestination.Nome);
         }
+        #endregion
+
+        #region Autor
+        [Fact]
+        public void Map_ShouldMapAutorToAutorContrato()
+        {
+            // Arrange
+            var autor = new Autor()
+            {
+                Id = Guid.NewGuid(),
+                Nome = "Stephen King"
+            };
+
+            // Act
+            var result = _mapper.Map<AutorContrato>(autor);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(autor.Id, result.Id);
+            Assert.Equal(autor.Nome, result.Nome);
+        }
+
+        [Fact]
+        public void Map_ShouldMapAutorContratoToAutor()
+        {
+            // Arrange
+            var autorContrato = new AutorContrato()
+            {
+                Id = Guid.NewGuid(),
+                Nome = "Stephen King"
+            };
+
+            // Act
+            var result = _mapper.Map<Autor>(autorContrato);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(autorContrato.Id, result.Id);
+            Assert.Equal(autorContrato.Nome, result.Nome);
+        }
+
+        [Fact]
+        public void Map_ShouldMapAutorToAutor()
+        {
+            // Arrange
+            var autorSource = new Autor()
+            {
+                Id = Guid.NewGuid(),
+                Nome = "Stephen King"
+            };
+            var autorDestination = new Autor()
+            {
+                Id = Guid.NewGuid(),
+                Nome = "Comédia"
+            };
+
+            // Act
+            _mapper.Map(autorSource, autorDestination);
+
+            // Assert
+            Assert.Equal(autorSource.Id, autorDestination.Id);
+            Assert.Equal(autorSource.Nome, autorDestination.Nome);
+        }
+        #endregion
     }
 }

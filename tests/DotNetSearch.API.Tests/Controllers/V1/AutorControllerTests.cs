@@ -12,26 +12,26 @@ using Xunit;
 
 namespace DotNetSearch.API.Tests.Controllers.V1
 {
-    public class CategoriaControllerTests
+    public class AutorControllerTests
     {
-        private readonly ICategoriaAppService _categoriaAppService;
-        private readonly CategoriaController _categoriaController;
+        private readonly IAutorAppService _autorAppService;
+        private readonly AutorController _autorController;
 
-        public CategoriaControllerTests()
+        public AutorControllerTests()
         {
-            _categoriaAppService = Substitute.For<ICategoriaAppService>();
-            _categoriaController = new CategoriaController(_categoriaAppService);
+            _autorAppService = Substitute.For<IAutorAppService>();
+            _autorController = new AutorController(_autorAppService);
         }
 
         #region GetAll
         [Fact]
         public void GetAll_ShouldReturnAppServiceGetAllResult()
         {
-            var esperado = new List<CategoriaContrato>() { 
-                new CategoriaContrato() { Id = Guid.NewGuid(), Nome = "Terror" } };
-            _categoriaAppService.GetAll().Returns(esperado);
+            var esperado = new List<AutorContrato>() { 
+                new AutorContrato() { Id = Guid.NewGuid(), Nome = "Stephen King" } };
+            _autorAppService.GetAll().Returns(esperado);
 
-            var resultado = _categoriaController.GetAll().GetAwaiter().GetResult();
+            var resultado = _autorController.GetAll().GetAwaiter().GetResult();
 
             Assert.Equal(esperado, resultado);
         }
@@ -41,10 +41,10 @@ namespace DotNetSearch.API.Tests.Controllers.V1
         [Fact]
         public void GetById_ShouldReturnAppServiceGetByIdResult()
         {
-            var esperado = new CategoriaContrato() { Id = Guid.NewGuid(), Nome = "Terror" };
-            _categoriaAppService.GetById(esperado.Id).Returns(esperado);
+            var esperado = new AutorContrato() { Id = Guid.NewGuid(), Nome = "Stephen King" };
+            _autorAppService.GetById(esperado.Id).Returns(esperado);
 
-            var resultado = _categoriaController.GetById(esperado.Id).GetAwaiter().GetResult();
+            var resultado = _autorController.GetById(esperado.Id).GetAwaiter().GetResult();
 
             Assert.Equal(esperado, resultado);
         }
@@ -54,10 +54,10 @@ namespace DotNetSearch.API.Tests.Controllers.V1
         [Fact]
         public void Add_ShouldReturn200()
         {
-            var contrato = new CategoriaContrato() { Nome = "Terror" };
-            _categoriaAppService.Add(contrato).Returns(new ValidationResult());
+            var contrato = new AutorContrato() { Nome = "Stephen King" };
+            _autorAppService.Add(contrato).Returns(new ValidationResult());
 
-            var resultado = _categoriaController.Add(contrato).GetAwaiter().GetResult();
+            var resultado = _autorController.Add(contrato).GetAwaiter().GetResult();
 
             Assert.NotNull(resultado);
             var okResultado = resultado as OkResult;
@@ -68,12 +68,12 @@ namespace DotNetSearch.API.Tests.Controllers.V1
         [Fact]
         public void Add_ShouldReturn422()
         {
-            var contrato = new CategoriaContrato() { Nome = "Terror" };
+            var contrato = new AutorContrato() { Nome = "Stephen King" };
             var validationResult = new ValidationResult();
             validationResult.Errors.Add(new ValidationFailure("", "ErrorMessage"));
-            _categoriaAppService.Add(contrato).Returns(validationResult);
+            _autorAppService.Add(contrato).Returns(validationResult);
 
-            var resultado = _categoriaController.Add(contrato).GetAwaiter().GetResult();
+            var resultado = _autorController.Add(contrato).GetAwaiter().GetResult();
 
             Assert.NotNull(resultado);
             var unprocessableEntityObjectResultado = resultado as UnprocessableEntityObjectResult;
@@ -90,10 +90,10 @@ namespace DotNetSearch.API.Tests.Controllers.V1
         [Fact]
         public void Update_ShouldReturn200()
         {
-            var contrato = new CategoriaContrato() { Id = Guid.NewGuid(), Nome = "Terror" };
-            _categoriaAppService.Update(contrato).Returns(new ValidationResult());
+            var contrato = new AutorContrato() { Id = Guid.NewGuid(), Nome = "Stephen King" };
+            _autorAppService.Update(contrato).Returns(new ValidationResult());
 
-            var resultado = _categoriaController.Update(contrato).GetAwaiter().GetResult();
+            var resultado = _autorController.Update(contrato).GetAwaiter().GetResult();
 
             Assert.NotNull(resultado);
             var okResultado = resultado as OkResult;
@@ -104,12 +104,12 @@ namespace DotNetSearch.API.Tests.Controllers.V1
         [Fact]
         public void Update_ShouldReturn422()
         {
-            var contrato = new CategoriaContrato() { Id = Guid.NewGuid(), Nome = "Terror" };
+            var contrato = new AutorContrato() { Id = Guid.NewGuid(), Nome = "Stephen King" };
             var validationResult = new ValidationResult();
             validationResult.Errors.Add(new ValidationFailure("", "ErrorMessage"));
-            _categoriaAppService.Update(contrato).Returns(validationResult);
+            _autorAppService.Update(contrato).Returns(validationResult);
 
-            var resultado = _categoriaController.Update(contrato).GetAwaiter().GetResult();
+            var resultado = _autorController.Update(contrato).GetAwaiter().GetResult();
 
             Assert.NotNull(resultado);
             var unprocessableEntityObjectResultado = resultado as UnprocessableEntityObjectResult;
@@ -127,9 +127,9 @@ namespace DotNetSearch.API.Tests.Controllers.V1
         public void Remove_ShouldReturn200()
         {
             var id = Guid.NewGuid();
-            _categoriaAppService.Remove(id).Returns(new ValidationResult());
+            _autorAppService.Remove(id).Returns(new ValidationResult());
 
-            var resultado = _categoriaController.Remove(id).GetAwaiter().GetResult();
+            var resultado = _autorController.Remove(id).GetAwaiter().GetResult();
 
             Assert.NotNull(resultado);
             var okResultado = resultado as OkResult;
@@ -143,9 +143,9 @@ namespace DotNetSearch.API.Tests.Controllers.V1
             var id = Guid.NewGuid();
             var validationResult = new ValidationResult();
             validationResult.Errors.Add(new ValidationFailure("", "ErrorMessage"));
-            _categoriaAppService.Remove(id).Returns(validationResult);
+            _autorAppService.Remove(id).Returns(validationResult);
 
-            var resultado = _categoriaController.Remove(id).GetAwaiter().GetResult();
+            var resultado = _autorController.Remove(id).GetAwaiter().GetResult();
 
             Assert.NotNull(resultado);
             var unprocessableEntityObjectResultado = resultado as UnprocessableEntityObjectResult;

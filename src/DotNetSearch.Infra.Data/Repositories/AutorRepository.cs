@@ -9,33 +9,33 @@ using System.Threading.Tasks;
 
 namespace DotNetSearch.Infra.Data.Repositories
 {
-    public class CategoriaRepository : Repository<Categoria>, ICategoriaRepository
+    public class AutorRepository : Repository<Autor>, IAutorRepository
     {
         private readonly IDbConnectionFactory _dbConnectionFactory;
 
-        public CategoriaRepository(DotNetSearchDbContext dbContext,
-                                   IDbConnectionFactory dbConnectionFactory) : base(dbContext) 
+        public AutorRepository(DotNetSearchDbContext dbContext,
+                               IDbConnectionFactory dbConnectionFactory) : base(dbContext)
         {
             _dbConnectionFactory = dbConnectionFactory;
         }
 
-        public override async Task<IEnumerable<Categoria>> DapperGetAll()
+        public override async Task<IEnumerable<Autor>> DapperGetAll()
         {
-            var query = "SELECT * FROM \"Categoria\"";
+            var query = "SELECT * FROM \"Autor\"";
 
             using (var connection = _dbConnectionFactory.CreateConnection())
             {
-                return await connection.QueryAsync<Categoria>(query);
+                return await connection.QueryAsync<Autor>(query);
             }
         }
 
-        public override async Task<Categoria> DapperGetById(Guid id)
+        public override async Task<Autor> DapperGetById(Guid id)
         {
-            var query = $"SELECT * FROM \"Categoria\" WHERE \"Id\" = '{id}'";
+            var query = $"SELECT * FROM \"Autor\" WHERE \"Id\" = '{id}'";
 
             using (var connection = _dbConnectionFactory.CreateConnection())
             {
-                return await connection.QuerySingleOrDefaultAsync<Categoria>(query);
+                return await connection.QuerySingleOrDefaultAsync<Autor>(query);
             }
         }
     }
