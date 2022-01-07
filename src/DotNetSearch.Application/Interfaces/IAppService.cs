@@ -10,5 +10,8 @@ namespace DotNetSearch.Application.Interfaces
     {
         Task<IEnumerable<TContrato>> GetAll();
         Task<TContrato> GetById(Guid id);
+
+        Task<IEnumerable<TContrato>> DapperGetAll();
+        Task<TContrato> DapperGetById(Guid id);
     }
 }

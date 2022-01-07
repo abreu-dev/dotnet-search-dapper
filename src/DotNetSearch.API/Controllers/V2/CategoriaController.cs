@@ -20,13 +20,13 @@ namespace DotNetSearch.API.Controllers.V2
         [HttpGet]
         public async Task<IEnumerable<CategoriaContrato>> GetAll()
         {
-            return await _categoriaAppService.GetAll();
+            return await _categoriaAppService.DapperGetAll();
         }
 
         [HttpGet("{id:guid}")]
         public async Task<CategoriaContrato> GetById(Guid id)
         {
-            return await _categoriaAppService.GetById(id);
+            return await _categoriaAppService.DapperGetById(id);
         }
 
         [HttpPost]

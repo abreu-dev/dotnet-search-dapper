@@ -32,5 +32,15 @@ namespace DotNetSearch.Application.Services
         {
             return _mapper.Map<TContrato>(await _repository.GetById(id));
         }
+
+        public async Task<IEnumerable<TContrato>> DapperGetAll()
+        {
+            return _mapper.Map<IEnumerable<TContrato>>(await _repository.DapperGetAll());
+        }
+
+        public async Task<TContrato> DapperGetById(Guid id)
+        {
+            return _mapper.Map<TContrato>(await _repository.DapperGetById(id));
+        }
     }
 }

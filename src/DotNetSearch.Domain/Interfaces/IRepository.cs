@@ -11,10 +11,14 @@ namespace DotNetSearch.Domain.Interfaces
     {
         IUnitOfWork UnitOfWork { get; }
 
+        IQueryable<TEntity> Query();
+
         Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate);
         Task<IEnumerable<TEntity>> GetAll();
         Task<TEntity> GetById(Guid id);
-        IQueryable<TEntity> Query();
+
+        Task<IEnumerable<TEntity>> DapperGetAll();
+        Task<TEntity> DapperGetById(Guid id);
 
         void Add(TEntity entity);
         void Update(TEntity entity);

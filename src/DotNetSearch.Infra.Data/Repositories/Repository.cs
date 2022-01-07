@@ -55,6 +55,10 @@ namespace DotNetSearch.Infra.Data.Repositories
             return await Query().SingleOrDefaultAsync(x => x.Id == id);
         }
 
+        public abstract Task<IEnumerable<TEntity>> DapperGetAll();
+
+        public abstract Task<TEntity> DapperGetById(Guid id);
+
         public virtual void Add(TEntity entity)
         {
             _dbSet.Add(entity);
