@@ -1,4 +1,5 @@
 ﻿using DotNetSearch.Domain.Entities;
+using DotNetSearch.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +12,15 @@ namespace DotNetSearch.Domain.Interfaces
     {
         IUnitOfWork UnitOfWork { get; }
 
+        IQueryable<TEntity> Query();
+
         Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate);
-        Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate, int page, int pageSize);
-        Task<IEnumerable<TEntity>> Search(string query);
         Task<IEnumerable<TEntity>> GetAll();
         Task<TEntity> GetById(Guid id);
-        IQueryable<TEntity> Query();
+
+        Task<IEnumerable<TEntity>> DapperSearch(SearchRequestModel searchRequestModel);
+        Task<IEnumerable<TEntity>> DapperGetAll();
+        Task<TEntity> DapperGetById(Guid id);
 
         void Add(TEntity entity);
         void Update(TEntity entity);

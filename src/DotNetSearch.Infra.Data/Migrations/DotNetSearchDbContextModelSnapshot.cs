@@ -81,7 +81,7 @@ namespace DotNetSearch.Infra.Data.Migrations
                     b.ToTable("Livro");
                 });
 
-            modelBuilder.Entity("DotNetSearch.Domain.Entities.LivroCategorias", b =>
+            modelBuilder.Entity("DotNetSearch.Domain.Entities.LivroCategoria", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -99,7 +99,7 @@ namespace DotNetSearch.Infra.Data.Migrations
 
                     b.HasIndex("LivroId");
 
-                    b.ToTable("LivroCategorias");
+                    b.ToTable("LivroCategoria");
                 });
 
             modelBuilder.Entity("DotNetSearch.Domain.Entities.Livro", b =>
@@ -113,7 +113,7 @@ namespace DotNetSearch.Infra.Data.Migrations
                     b.Navigation("Autor");
                 });
 
-            modelBuilder.Entity("DotNetSearch.Domain.Entities.LivroCategorias", b =>
+            modelBuilder.Entity("DotNetSearch.Domain.Entities.LivroCategoria", b =>
                 {
                     b.HasOne("DotNetSearch.Domain.Entities.Categoria", "Categoria")
                         .WithMany()

@@ -1,6 +1,6 @@
 ﻿using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
-using DotNetSearch.Infra.CrossCutting.Search.Contratos;
+using DotNetSearch.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -18,40 +18,22 @@ namespace DotNetSearch.API.Controllers.V2
             _categoriaAppService = categoriaAppService;
         }
 
+        [HttpGet("search")]
+        public async Task<IEnumerable<CategoriaContrato>> Search([FromBody] SearchRequestModel searchRequestModel)
+        {
+            return await _categoriaAppService.DapperSearch(searchRequestModel);
+        }
+
         [HttpGet]
         public async Task<IEnumerable<CategoriaContrato>> GetAll()
         {
-            return await _categoriaAppService.GetAll();
+            return await _categoriaAppService.DapperGetAll();
         }
 
         [HttpGet("{id:guid}")]
         public async Task<CategoriaContrato> GetById(Guid id)
         {
-            return await _categoriaAppService.GetById(id);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Add([FromBody] CategoriaContrato categoriaContrato)
-        {
-            return Response(await _categoriaAppService.Add(categoriaContrato));
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] CategoriaContrato categoriaContrato)
-        {
-            return Response(await _categoriaAppService.Update(categoriaContrato));
-        }
-
-        [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> Remove(Guid id)
-        {
-            return Response(await _categoriaAppService.Remove(id));
-        }
-
-        [HttpGet("search")]
-        public async Task<IEnumerable<CategoriaContrato>> Search([FromBody] SearchContrato searchContrato)
-        {
-            return await _categoriaAppService.Search(searchContrato);
+            return await _categoriaAppService.DapperGetById(id);
         }
     }
 }

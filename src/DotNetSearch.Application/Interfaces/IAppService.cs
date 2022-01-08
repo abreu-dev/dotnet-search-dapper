@@ -1,5 +1,5 @@
 ﻿using DotNetSearch.Application.Contratos;
-using DotNetSearch.Infra.CrossCutting.Search.Contratos;
+using DotNetSearch.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,7 +10,10 @@ namespace DotNetSearch.Application.Interfaces
         where TContrato : Contrato
     {
         Task<IEnumerable<TContrato>> GetAll();
-        Task<IEnumerable<TContrato>> Search(SearchContrato searchContrato);
         Task<TContrato> GetById(Guid id);
+
+        Task<IEnumerable<TContrato>> DapperSearch(SearchRequestModel searchRequestModel);
+        Task<IEnumerable<TContrato>> DapperGetAll();
+        Task<TContrato> DapperGetById(Guid id);
     }
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -29,6 +29,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\DotNetSearch.Domain\DotNetSearch.Domain.csproj" />
     <ProjectReference Include="..\..\src\DotNetSearch.Infra.Data\DotNetSearch.Infra.Data.csproj" />
+    <ProjectReference Include="..\DotNetSearch.Tests\DotNetSearch.Tests.csproj" />
   </ItemGroup>
 
 </Project>

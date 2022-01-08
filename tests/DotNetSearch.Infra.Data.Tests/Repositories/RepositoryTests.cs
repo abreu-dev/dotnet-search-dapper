@@ -7,6 +7,7 @@ using NSubstitute;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace DotNetSearch.Infra.Data.Tests.Repositories
@@ -30,6 +31,7 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
             _myRepositoryConcreteClass = new MyRepositoryConcreteClass(_myDbContextConcreteClass);
         }
 
+        #region UnitOfWork
         [Fact]
         public void UnitOfWork_ShouldReturnDbContextAsUnitOfWork()
         {
@@ -37,7 +39,9 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
 
             Assert.NotNull(resultado);
         }
+        #endregion
 
+        #region Query
         [Fact]
         public void Query_ShouldReturnEntityQueryable()
         {
@@ -46,7 +50,9 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
             Assert.Single(resultado);
             Assert.Equal(_myEntityConcreteClass, resultado.Single());
         }
+        #endregion
 
+        #region Search
         [Fact]
         public void Search_ShouldReturnEntityList()
         {
@@ -65,7 +71,9 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
 
             Assert.Empty(resultado);
         }
+        #endregion
 
+        #region GetAll
         [Fact]
         public void GetAll_ShouldReturnEntityList()
         {
@@ -74,7 +82,9 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
             Assert.Single(resultado);
             Assert.Equal(_myEntityConcreteClass, resultado.Single());
         }
+        #endregion
 
+        #region GetById
         [Fact]
         public void GetById_ShouldReturnEntity()
         {
@@ -90,7 +100,9 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
 
             Assert.Null(resultado);
         }
+        #endregion
 
+        #region Add
         [Fact]
         public void Add_ShouldCallDbSetAdd()
         {
@@ -100,7 +112,9 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
 
             _myEntityConcreteClassDbSet.Received(1).Add(entidade);
         }
+        #endregion
 
+        #region Update
         [Fact]
         public void Update_ShouldCallDbSetUpdate()
         {
@@ -110,7 +124,9 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
 
             _myEntityConcreteClassDbSet.Received(1).Update(entidade);
         }
+        #endregion
 
+        #region Remove
         [Fact]
         public void Remove_ShouldCallDbSetRemove()
         {
@@ -120,6 +136,7 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
 
             _myEntityConcreteClassDbSet.Received(1).Remove(entidade);
         }
+        #endregion
     }
 
     public class MyEntityConcreteClass : Entity { }
@@ -135,5 +152,15 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
     {
         public MyRepositoryConcreteClass(MyDbContextConcreteClass myDbContextConcreteClass)
             : base(myDbContextConcreteClass) { }
+
+        public override Task<IEnumerable<MyEntityConcreteClass>> DapperGetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Task<MyEntityConcreteClass> DapperGetById(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

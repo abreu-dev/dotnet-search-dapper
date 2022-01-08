@@ -24,6 +24,7 @@ namespace DotNetSearch.Application.Tests.Services
             _myAppServiceConcreteClass = new MyAppServiceConcreteClass(_mapper, _repository);
         }
 
+        #region GetAll
         [Fact]
         public void GetAll_ShouldReturnEmptyContratoList()
         {
@@ -50,7 +51,9 @@ namespace DotNetSearch.Application.Tests.Services
 
             Assert.Equal(contratoLista, resultado);
         }
+        #endregion
 
+        #region GetById
         [Fact]
         public void GetById_ShouldReturnNull()
         {
@@ -75,6 +78,7 @@ namespace DotNetSearch.Application.Tests.Services
 
             Assert.Equal(contrato, resultado);
         }
+        #endregion
     }
 
     public class MyEntityConcreteClass : Entity { }

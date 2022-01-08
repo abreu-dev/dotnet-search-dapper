@@ -14,6 +14,6 @@ namespace DotNetSearch.Domain.Entities
         public Autor Autor { get; set; }
         public Guid AutorId { get; set; }
 
-        public virtual IEnumerable<LivroCategorias> Categorias { get; set; } 
+        public virtual List<LivroCategoria> Categorias { get; set; } 
     }
 }

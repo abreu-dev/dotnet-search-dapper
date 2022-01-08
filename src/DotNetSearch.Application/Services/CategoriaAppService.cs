@@ -7,6 +7,7 @@ using DotNetSearch.Domain.Interfaces;
 using DotNetSearch.Domain.Validators.CategoriaValidators;
 using FluentValidation.Results;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace DotNetSearch.Application.Services
