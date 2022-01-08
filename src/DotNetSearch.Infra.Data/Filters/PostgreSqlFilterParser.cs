@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using DotNetSearch.Domain.Common;
+using System.Linq;
 using System.Linq.Dynamic.Core;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -30,7 +31,7 @@ namespace DotNetSearch.Infra.Data.Filters
 
         public string BuildPropertyPath(string propertyPath)
         {
-            return $"{_tablename}.{propertyPath}";
+            return $"{_tablename}.\"{propertyPath.FirstCharToUpper()}\"";
         }
 
         public string And(string leftCondition, string rightCondition)
@@ -50,12 +51,12 @@ namespace DotNetSearch.Infra.Data.Filters
 
         public string Ne(string propertyPath, string value)
         {
-            return $"{propertyPath} != '{value}'";
+            return $"{BuildPropertyPath(propertyPath)} != '{value}'";
         }
 
         public string Like(string propertyPath, string value)
         {
-            return $"{propertyPath} LIKE '%{value}%'";
+            return $"LOWER({BuildPropertyPath(propertyPath)}) LIKE '%{value.ToLower()}%'";
         }
     }
 }

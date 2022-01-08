@@ -1,9 +1,9 @@
-﻿using System.Data;
+﻿using Npgsql;
 
 namespace DotNetSearch.Infra.Data.DbConnection
 {
     public interface IDbConnectionFactory
     {
-        IDbConnection CreateConnection();
+        NpgsqlConnection CreateConnection();
     }
 }
