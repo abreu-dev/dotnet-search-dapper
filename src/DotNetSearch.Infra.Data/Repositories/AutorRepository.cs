@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using DotNetSearch.Domain.Entities;
 using DotNetSearch.Domain.Interfaces;
+using DotNetSearch.Domain.Models;
 using DotNetSearch.Infra.Data.Context;
 using DotNetSearch.Infra.Data.DbConnection;
 using System;
@@ -19,6 +20,16 @@ namespace DotNetSearch.Infra.Data.Repositories
             _dbConnectionFactory = dbConnectionFactory;
         }
 
+        public override async Task<IEnumerable<Autor>> DapperSearch(SearchRequestModel searchRequestModel)
+        {
+            var query = "SELECT * FROM \"Autor\"";
+
+            using (var connection = _dbConnectionFactory.CreateConnection())
+            {
+                return await connection.QueryAsync<Autor>(query);
+            }
+        }
+
         public override async Task<IEnumerable<Autor>> DapperGetAll()
         {
             var query = "SELECT * FROM \"Autor\"";
@@ -31,11 +42,12 @@ namespace DotNetSearch.Infra.Data.Repositories
 
         public override async Task<Autor> DapperGetById(Guid id)
         {
-            var query = $"SELECT * FROM \"Autor\" WHERE \"Id\" = '{id}'";
+            var query = $"SELECT * FROM \"Autor\" WHERE \"Id\" = @AutorId";
+            var queryParams = new { AutorId = id };
 
             using (var connection = _dbConnectionFactory.CreateConnection())
             {
-                return await connection.QuerySingleOrDefaultAsync<Autor>(query);
+                return await connection.QuerySingleOrDefaultAsync<Autor>(query, queryParams);
             }
         }
     }

@@ -3,6 +3,7 @@ using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
 using DotNetSearch.Domain.Entities;
 using DotNetSearch.Domain.Interfaces;
+using DotNetSearch.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -31,6 +32,11 @@ namespace DotNetSearch.Application.Services
         public async Task<TContrato> GetById(Guid id)
         {
             return _mapper.Map<TContrato>(await _repository.GetById(id));
+        }
+
+        public async Task<IEnumerable<TContrato>> DapperSearch(SearchRequestModel searchRequestModel)
+        {
+            return _mapper.Map<IEnumerable<TContrato>>(await _repository.DapperSearch(searchRequestModel));
         }
 
         public async Task<IEnumerable<TContrato>> DapperGetAll()

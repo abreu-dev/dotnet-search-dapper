@@ -1,5 +1,6 @@
 ﻿using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
+using DotNetSearch.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ namespace DotNetSearch.API.Controllers.V2
         public CategoriaController(ICategoriaAppService categoriaAppService)
         {
             _categoriaAppService = categoriaAppService;
+        }
+
+        [HttpGet("search")]
+        public async Task<IEnumerable<CategoriaContrato>> Search([FromBody] SearchRequestModel searchRequestModel)
+        {
+            return await _categoriaAppService.DapperSearch(searchRequestModel);
         }
 
         [HttpGet]

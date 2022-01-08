@@ -1,4 +1,5 @@
 ﻿using DotNetSearch.Domain.Entities;
+using DotNetSearch.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace DotNetSearch.Domain.Interfaces
         Task<IEnumerable<TEntity>> GetAll();
         Task<TEntity> GetById(Guid id);
 
+        Task<IEnumerable<TEntity>> DapperSearch(SearchRequestModel searchRequestModel);
         Task<IEnumerable<TEntity>> DapperGetAll();
         Task<TEntity> DapperGetById(Guid id);
 

@@ -1,5 +1,6 @@
 ﻿using DotNetSearch.Domain.Entities;
 using DotNetSearch.Domain.Interfaces;
+using DotNetSearch.Domain.Models;
 using DotNetSearch.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -54,6 +55,8 @@ namespace DotNetSearch.Infra.Data.Repositories
         {
             return await Query().SingleOrDefaultAsync(x => x.Id == id);
         }
+
+        public abstract Task<IEnumerable<TEntity>> DapperSearch(SearchRequestModel searchRequestModel);
 
         public abstract Task<IEnumerable<TEntity>> DapperGetAll();
 
