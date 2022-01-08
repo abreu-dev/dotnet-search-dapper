@@ -1,13 +1,16 @@
 ﻿using Dapper;
 using DotNetSearch.Domain.Common;
 using DotNetSearch.Domain.Entities;
+using DotNetSearch.Domain.Enums;
 using DotNetSearch.Domain.Interfaces;
 using DotNetSearch.Domain.Models;
 using DotNetSearch.Infra.Data.Context;
 using DotNetSearch.Infra.Data.DbConnection;
 using DotNetSearch.Infra.Data.Filters;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,13 +29,42 @@ namespace DotNetSearch.Infra.Data.Repositories
         public override async Task<IEnumerable<Categoria>> DapperSearch(SearchRequestModel searchRequestModel)
         {
             var query = new StringBuilder()
-                .AppendLine("SELECT Categoria.* FROM \"Categoria\" Categoria");
+                .AppendLine("SELECT Categoria.* FROM \"Categoria\" Categoria WHERE 1=1");
 
             var parser = new PostgreSqlFilterParser("Categoria");
 
+            if (searchRequestModel.LastRow != null)
+            {
+                var jsonObject = JObject.Parse(Convert.ToString(searchRequestModel.LastRow));
+                var jsonProperties = jsonObject.Descendants().Where(property => property is JValue);
+                var lastRowFilter = new Dictionary<string, string>();
+
+                foreach (var sort in searchRequestModel.Sort)
+                {
+                    var value = jsonProperties.FirstOrDefault(property => property.Path == sort.PropertyName);
+                    if (value != null)
+                    {
+                        var propertyPath = parser.BuildPropertyPath(sort.PropertyName);
+                        var propertyValue = $"'{value}'";
+                        lastRowFilter.Add(propertyPath, propertyValue);
+                    }
+                }
+
+                if (lastRowFilter.Count > 0)
+                {
+                    var where = new StringBuilder()
+                        .Append("AND ")
+                        .Append(string.Format("({0}) {1} ({2})",
+                        string.Join(",", lastRowFilter.Keys),
+                        searchRequestModel.Sort.First().Direction == SearchSortDirection.Desc ? "<" : ">",
+                        string.Join(",", lastRowFilter.Values)));
+                    query.AppendLine(where.ToString());
+                }
+            }
+
             if (!string.IsNullOrEmpty(searchRequestModel.Filter))
             {
-                var where = new StringBuilder().Append("WHERE ");
+                var where = new StringBuilder().Append("AND ");
 
                 var filterParsed = parser.Parse(searchRequestModel.Filter);
 
@@ -46,17 +78,19 @@ namespace DotNetSearch.Infra.Data.Repositories
 
                 foreach (var sort in searchRequestModel.Sort)
                 {
-                    if (string.IsNullOrEmpty(orderBy.ToString()))
-                    {
-                        orderBy.Append($"ORDER BY {parser.BuildPropertyPath(sort.PropertyName)} {sort.Direction.GetDescription()}");
-                    }
-                    else
-                    {
-                        orderBy.Append($", {parser.BuildPropertyPath(sort.PropertyName)} {sort.Direction.GetDescription()}");
-                    }
+                    orderBy.Append(
+                        string.Format("{0} {1} {2}",
+                            orderBy.Length > 0 ? "," : "ORDER BY",
+                            parser.BuildPropertyPath(sort.PropertyName),
+                            sort.Direction.GetDescription()));
                 }
 
                 query.AppendLine(orderBy.ToString());
+            }
+
+            if (searchRequestModel.PageSize > 0)
+            {
+                query.AppendLine(string.Format("LIMIT {0}", searchRequestModel.PageSize));
             }
 
             var finalQuery = query.ToString();
