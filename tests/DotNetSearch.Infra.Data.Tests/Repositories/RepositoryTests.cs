@@ -1,4 +1,5 @@
 ﻿using DotNetSearch.Domain.Entities;
+using DotNetSearch.Domain.Models;
 using DotNetSearch.Infra.Data.Context;
 using DotNetSearch.Infra.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -152,6 +153,11 @@ namespace DotNetSearch.Infra.Data.Tests.Repositories
     {
         public MyRepositoryConcreteClass(MyDbContextConcreteClass myDbContextConcreteClass)
             : base(myDbContextConcreteClass) { }
+
+        public override Task<IEnumerable<MyEntityConcreteClass>> DapperSearch(SearchRequestModel searchRequestModel)
+        {
+            throw new NotImplementedException();
+        }
 
         public override Task<IEnumerable<MyEntityConcreteClass>> DapperGetAll()
         {

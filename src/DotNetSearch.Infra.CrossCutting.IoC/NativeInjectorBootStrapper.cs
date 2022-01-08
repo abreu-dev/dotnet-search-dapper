@@ -18,7 +18,7 @@ namespace DotNetSearch.Infra.CrossCutting.IoC
         {
             // Infra Data - Context
             services.AddDbContext<DotNetSearchDbContext>(options =>
-                    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                    options.UseNpgsql(configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<DotNetSearchDbContext>();
 
             // Infra Data - DbConnection

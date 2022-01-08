@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DotNetSearch.Infra.Data.Migrations
 {
-    public partial class AutorLivroECategoria : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,9 +11,9 @@ namespace DotNetSearch.Infra.Data.Migrations
                 name: "Autor",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DataNascimento = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Nome = table.Column<string>(type: "text", nullable: true),
+                    DataNascimento = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -24,8 +24,8 @@ namespace DotNetSearch.Infra.Data.Migrations
                 name: "Categoria",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Nome = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -36,13 +36,13 @@ namespace DotNetSearch.Infra.Data.Migrations
                 name: "Livro",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Sinopse = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Capa = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NumeroPaginas = table.Column<int>(type: "int", nullable: false),
-                    DataPublicacao = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AutorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Titulo = table.Column<string>(type: "text", nullable: true),
+                    Sinopse = table.Column<string>(type: "text", nullable: true),
+                    Capa = table.Column<string>(type: "text", nullable: true),
+                    NumeroPaginas = table.Column<int>(type: "integer", nullable: false),
+                    DataPublicacao = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    AutorId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,24 +56,24 @@ namespace DotNetSearch.Infra.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "LivroCategorias",
+                name: "LivroCategoria",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    LivroId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CategoriaId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    LivroId = table.Column<Guid>(type: "uuid", nullable: false),
+                    CategoriaId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LivroCategorias", x => x.Id);
+                    table.PrimaryKey("PK_LivroCategoria", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LivroCategorias_Categoria_CategoriaId",
+                        name: "FK_LivroCategoria_Categoria_CategoriaId",
                         column: x => x.CategoriaId,
                         principalTable: "Categoria",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_LivroCategorias_Livro_LivroId",
+                        name: "FK_LivroCategoria_Livro_LivroId",
                         column: x => x.LivroId,
                         principalTable: "Livro",
                         principalColumn: "Id",
@@ -86,20 +86,20 @@ namespace DotNetSearch.Infra.Data.Migrations
                 column: "AutorId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LivroCategorias_CategoriaId",
-                table: "LivroCategorias",
+                name: "IX_LivroCategoria_CategoriaId",
+                table: "LivroCategoria",
                 column: "CategoriaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LivroCategorias_LivroId",
-                table: "LivroCategorias",
+                name: "IX_LivroCategoria_LivroId",
+                table: "LivroCategoria",
                 column: "LivroId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "LivroCategorias");
+                name: "LivroCategoria");
 
             migrationBuilder.DropTable(
                 name: "Categoria");

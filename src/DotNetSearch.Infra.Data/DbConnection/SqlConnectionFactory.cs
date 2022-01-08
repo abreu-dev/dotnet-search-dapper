@@ -1,4 +1,4 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Npgsql;
 using System.Data;
 
 namespace DotNetSearch.Infra.Data.DbConnection
@@ -12,9 +12,9 @@ namespace DotNetSearch.Infra.Data.DbConnection
             this.dbConnectionString = dbConnectionString;
         }
 
-        public IDbConnection CreateConnection()
+        public NpgsqlConnection CreateConnection()
         {
-            return new SqlConnection(dbConnectionString);
+            return new NpgsqlConnection(dbConnectionString);
         }
     }
 }

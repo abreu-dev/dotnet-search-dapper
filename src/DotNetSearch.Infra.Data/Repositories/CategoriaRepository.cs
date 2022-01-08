@@ -28,11 +28,12 @@ namespace DotNetSearch.Infra.Data.Repositories
             var query = new StringBuilder()
                 .AppendLine("SELECT Categoria.* FROM \"Categoria\" Categoria");
 
+            var parser = new PostgreSqlFilterParser("Categoria");
+
             if (!string.IsNullOrEmpty(searchRequestModel.Filter))
             {
                 var where = new StringBuilder().Append("WHERE ");
 
-                var parser = new PostgreSqlFilterParser("Categoria");
                 var filterParsed = parser.Parse(searchRequestModel.Filter);
 
                 where.Append(filterParsed);
@@ -47,11 +48,11 @@ namespace DotNetSearch.Infra.Data.Repositories
                 {
                     if (string.IsNullOrEmpty(orderBy.ToString()))
                     {
-                        orderBy.Append($"ORDER BY Categoria.{sort.PropertyName} {sort.Direction.GetDescription()}");
+                        orderBy.Append($"ORDER BY {parser.BuildPropertyPath(sort.PropertyName)} {sort.Direction.GetDescription()}");
                     }
                     else
                     {
-                        orderBy.Append($", Categoria.{sort.PropertyName} {sort.Direction.GetDescription()}");
+                        orderBy.Append($", {parser.BuildPropertyPath(sort.PropertyName)} {sort.Direction.GetDescription()}");
                     }
                 }
 
