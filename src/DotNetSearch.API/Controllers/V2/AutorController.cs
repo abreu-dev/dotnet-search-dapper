@@ -1,5 +1,6 @@
 ﻿using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
+using DotNetSearch.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ namespace DotNetSearch.API.Controllers.V2
         public AutorController(IAutorAppService autorAppService)
         {
             _autorAppService = autorAppService;
+        }
+
+        [HttpGet("search")]
+        public async Task<IEnumerable<AutorContrato>> Search([FromBody] SearchRequestModel searchRequestModel)
+        {
+            return await _autorAppService.DapperSearch(searchRequestModel);
         }
 
         [HttpGet]

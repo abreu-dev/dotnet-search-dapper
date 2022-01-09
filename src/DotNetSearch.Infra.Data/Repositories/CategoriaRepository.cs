@@ -81,8 +81,9 @@ namespace DotNetSearch.Infra.Data.Repositories
         {
             var filterParsed = parser.Parse(filter);
             return new StringBuilder()
-                .Append("AND ")
+                .Append("AND (")
                 .Append(filterParsed)
+                .Append(")")
                 .ToString();
         }
 
