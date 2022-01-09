@@ -1,0 +1,14 @@
+SELECT * FROM "Livro" l 
+
+INSERT INTO "Livro" VALUES
+('baaf79c4-6870-14b8-ffbd-1ae7db7dfe65', 'It', 'No verão de 1958, Bill Denbrough, Richie Tozier, Stan Uris, Mike Hanlon, Eddie Kapsbrak, Ben Hanscom e Beverly Marsh, sete pré-adolescentes, moradores da fictícia cidade de Derry, no Maine, estão de férias e se deparam com um monstruoso ser milenar, que reaparece a cada 27 anos para se alimentar de crianças.', 'https://upload.wikimedia.org/wikipedia/pt/thumb/c/cc/A_coisa.jpg/230px-A_coisa.jpg', 695, '1986-09-15T00:00:00', 'e8eb0917-ef85-b175-2d91-9006a323d145'),
+('8327fc18-11d7-f242-93ba-576e98572841', 'Harry Potter e a Pedra Filosofal', 'Quando bebê, Harry Potter fora deixado na porta de seus tios maternos Petúnia Dursley (irmã mais velha de Lillian) e Válter Dursley. Harry Potter cresceu na casa dos seus tios, que escondiam a verdade sobre sua família. Ao completar onze anos, Harry começa a receber cartas de um remetente desconhecido, que aumentam de quantidade à medida que seus tios as destroem. Quando finalmente consegue abrir uma delas, Harry descobre que possui poderes mágicos, como os seus pais, e que foi aceito na Escola de Magia e Bruxaria de Hogwarts.', 'https://upload.wikimedia.org/wikipedia/pt/thumb/c/c1/Capa_HP1.jpg/230px-Capa_HP1.jpg', 309, '1998-09-01T00:00:00', 'b4f6810a-2749-6185-48de-94363044fd9e'),
+('03646078-ce53-9de7-ca3d-77d910977193', 'Harry Potter e o Prisioneiro de Azkaban','Harry volta para a casa de seus tios, os Dursley, onde vê no jornal dos trouxas que um presidiário chamado Sirius Black fugiu.[10] Quando a irmã de seu tio, Guida, os visita e começa a insultar os pais de Harry, ele involuntariamente a transforma em um balão, o que o faz fugir de casa e ser resgatado pelo Nôitibus Andante.[11] Ele viaja até o Beco Diagonal, onde encontra Cornélio Fudge, o Ministro da Magia, que pede a Harry que permaneça no local até o começo das aulas em Hogwarts.', 'https://upload.wikimedia.org/wikipedia/pt/thumb/e/eb/Capa_HP3.jpg/230px-Capa_HP3.jpg', 317, '1999-07-08', 'b4f6810a-2749-6185-48de-94363044fd9e')
+
+SELECT * FROM "LivroCategoria" lc 
+
+INSERT INTO "LivroCategoria" VALUES 
+('3f1ae432-53d6-c52a-671a-5f1063b5c648', 'baaf79c4-6870-14b8-ffbd-1ae7db7dfe65', 'de85dab4-cb63-aaf9-96b2-65a786f1285c'),
+('1d9f39ab-5fb7-a97e-2340-76046b2c1e6f', 'baaf79c4-6870-14b8-ffbd-1ae7db7dfe65', 'e7a81a6d-cdee-9b1b-c0a5-2372a4601f95'),
+('7003c40f-c703-a34f-4f68-b77dc1144e2c', '8327fc18-11d7-f242-93ba-576e98572841', '2a62cd8f-bbf1-2fca-3c4a-1632d964d651'),
+('083a4bc5-7b3e-d4fe-d702-d766c970ddd8', '8327fc18-11d7-f242-93ba-576e98572841', '7f948329-afb9-9093-6db0-b0f4fd12dd6b')

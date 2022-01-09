@@ -31,7 +31,16 @@ namespace DotNetSearch.Infra.Data.Filters
 
         public string BuildPropertyPath(string propertyPath)
         {
-            return $"{_tablename}.\"{propertyPath.FirstCharToUpper()}\"";
+            var propertyParts = propertyPath.Split('.');   
+
+            if (propertyParts.Length == 1)
+            {
+                return $"{_tablename}.\"{propertyPath.FirstCharToUpper()}\"";
+            }
+
+            var tablename = propertyParts[propertyParts.Length - 2].FirstCharToUpper();
+            var property = propertyParts[propertyParts.Length - 1].FirstCharToUpper();
+            return $"{tablename}.\"{property}\"";
         }
 
         public string And(string leftCondition, string rightCondition)

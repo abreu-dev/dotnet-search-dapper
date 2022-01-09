@@ -1,5 +1,6 @@
 ﻿using DotNetSearch.Application.Contratos;
 using DotNetSearch.Application.Interfaces;
+using DotNetSearch.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ namespace DotNetSearch.API.Controllers.V2
         public LivroController(ILivroAppService livroAppService)
         {
             _livroAppService = livroAppService;
+        }
+
+        [HttpGet("search")]
+        public async Task<IEnumerable<LivroContrato>> Search([FromBody] SearchRequestModel searchRequestModel)
+        {
+            return await _livroAppService.DapperSearch(searchRequestModel);
         }
 
         [HttpGet]
